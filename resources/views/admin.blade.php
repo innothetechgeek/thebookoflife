@@ -278,7 +278,7 @@
 
 </nav>
 
-<div class="docs-wrapper container" style="min-height: 400px; padding: 49px;">
+<div class="docs-wrapper main-container container" style="min-height: 400px; padding: 49px;">
     <!-- Single button -->
     <div class="btn-group">
         <button type="button" class="btn btn-info dropdown-toggle" id="btn-hackerthons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -350,37 +350,43 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="editPostModal">Edit  Post</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form>
-            <div class="modal-body">
+            <form  method="POST" name="update-post-form">
+                {{ csrf_field() }}
+                <div class="modal-body">
+
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Title</label>
-                        <input type="text" class="form-control" id="" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Category</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <label for="hackerthon">Hackerthon</label>
+                        <select class="form-control" name="hackerthon" class = "category" id="slctPostHackerthon">
+                            @foreach($hackerthons as $hackerthon)
+                                <option value="{{$hackerthon->hck_id}}">{{$hackerthon->hck_name}}</option>
+                            @endforeach
+                        </select>
+                        <label for="category">Category</label>
+                        <select class="form-control" name="category" id="slctPostCategory">
+                            {{--@foreach($categories as $category)--}}
+                                {{--<option value="{{$category->cat_id}}">{{$category->cat_name}}</option>--}}
+                            {{--@endforeach--}}
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Content</label>
-                        <textarea class="form-control" id="" rows="15"></textarea>
+                        <label for="exampleFormControlInput1">Title</label>
+                        <input type="text" name="title" class="form-control" id="post_title" placeholder="">
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Content</label>
+                        <textarea class="form-control" name="content" id="postContent" rows="35"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -559,7 +565,7 @@
 
 <!-- Initialize the editor. -->
 <script> $(function() { $('textarea').froalaEditor({
-      toolbarButtons: ['bold', 'italic', 'underline','color','fontFamily','formatUL','formatOL','fontSize','insertImage', 'html','outdent','insertLink', 'indent','|', 'undo', 'redo']
+      toolbarButtons: ['bold', 'italic', 'underline','color','fontFamily','formatUL','formatOL','fontSize','insertImage','h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'html','outdent','insertLink', 'indent','|', 'undo', 'redo']
     })  });
 </script>
 
@@ -584,6 +590,27 @@
         });
     })
 
+    $('#slctPostHackerthon').change(function(){
+        var hackerthonId = $(this).val();
+        populateCategorySelectBox(hackerthonId);
+    });
+
+    function populateCategorySelectBox(hackerthonId){
+        var path = "{{ url('category') }}/"+hackerthonId;
+        $.ajax({
+            url: path,
+            type: 'get',
+            success:function(data){
+                data = JSON.parse(data);
+                var options = "";
+                for(var i = 0; i < data.length; i++){
+                    options += "<option value='"+data[i].cat_id+"'>"+data[i].cat_name+"</option>";
+                }
+                $('#slctPostCategory').html(options);
+            }
+        });
+    }
+
     $('#btn-hackerthons').click(function(){
         var path = "{{ url('hackerthons') }}";
         $.ajax({
@@ -597,7 +624,7 @@
                                +"</tr>";
                 for(var i = 0; i < data.length; i++){
                     tableData +=    "<tr><td>"+data[i].hck_name+"</td>"+
-                                          "<td data-toggle='modal' data-target='#editPost'>edit</td>"+
+                                          "<td data-toggle='modal edit-post'  id = '"+data[i].pst_id+"' data-target='#editPost'>edit</td>"+
                                           "<td>delete</td>"+
                                      "</tr>";
                 }
@@ -606,6 +633,40 @@
             }
         });
     })
+
+    //can't access the edit post class directly coz it's generated by ajax.
+    $('.main-container').on('click', '.edit-post', function(){
+        var id = $(this).attr('id');
+
+       // alert("post id: "+ id);
+        var path = "{{url('post')}}/"+id;
+        $.ajax({
+            url:path,
+            type:'GET',
+            success: function(response){
+
+                response = JSON.parse(response);
+                console.log(response);
+                $('#post_title').val(response.posts[0]['pst_title']);
+                $('#slctPostCategory').html(response.categories_options);
+               $('#slctPostHackerthon').html(response.hackerthons_options);
+                $(".fr-view").html(response.posts[0]['pst_content'])
+
+                $('form[name="update-post-form"]').attr("action", "{{ url('update-post') }}/"+id)
+
+
+               // alert(response.posts[0]['pst_content']);
+                     // alert(response.posts[pst_id]);
+                   // selectPostHackerthon(response[i].hck_id);
+                    //teCategorySelectBox(response[i].hck_id);
+                    //selectPostCategory(response[i].cat_id)
+
+
+               // alert(response);
+            }
+        })
+    });
+
 
     $('#btn-categories').click(function(){
         var path = "{{ url('categories') }}";
@@ -643,7 +704,7 @@
                     "</tr>";
                 for(var i = 0; i < data.length; i++){
                     tableData += "<tr><td>"+data[i].cat_name+"</td>"+
-                        "<td data-toggle='modal' data-target='#editPost'>edit</td>"+
+                        "<td data-toggle='modal edit-post'  id = '"+data[i].pst_id+"' data-target='#editPost'>edit</td>"+
                         "<td>delete</td>"+
                         "</tr>";
                 }
@@ -672,7 +733,7 @@
                                     "<td>"+data[i].pst_content+"</td>"+
                                     "<td>"+data[i].hck_name+"</td>"+
                                     "<td>"+data[i].cat_name+"</td>"+
-                                    "<td data-toggle='modal' data-target='#editPost'>edit</td>"+
+                                    "<td data-toggle='modal'  class= 'edit-post'  id = '"+data[i].pst_id+"' data-target='#editPost'>edit</td>"+
                                     "<td>delete</td>"+
                                  "</tr>";
                 }

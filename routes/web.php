@@ -37,4 +37,7 @@ Route::get('category/{id}','AdminController@getCategoryById');
 Route::get('categories','AdminController@getCategories');
 Route::get('hackerthons','AdminController@getHackerthons');
 Route::get('posts','AdminController@getPosts');
+Route::get('hackerthon-posts/{id}','HomeController@getPostsByHackerthonId');
+Route::get('post/{id}', 'AdminController@getPostById');
+Route::post('update-post/{id}', 'AdminController@updatePost');
 

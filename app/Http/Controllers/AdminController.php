@@ -77,4 +77,55 @@ class AdminController extends Controller
                 ->get();
         return json_encode($posts);
     }
+
+    public function getPostById($post_id){
+        $posts = DB::table('post')
+                    ->leftJoin('category', 'post.cat_id', '=', 'category.cat_id')
+                    ->leftJoin('hackerthon', 'category.hck_id', '=', 'hackerthon.hck_id')
+                    ->where('post.pst_id','=', $post_id)
+                    ->get();
+
+        $categories = DB::table('category')
+                            ->get();
+
+        $hackerthons = DB::table('hackerthon')
+                                ->get();
+
+
+        $hackerthons_options = "";
+        foreach($hackerthons as $hackerthon){
+            $is_selected = "";
+            if($posts[0]->hck_id  == $hackerthon->hck_id){
+                $is_selected = "selected";
+            }
+            $hackerthons_options .= '<option value="'.$hackerthon->hck_id.'" '.$is_selected.'>'.$hackerthon->hck_name.'</option>';
+        }
+
+        $categories_options = "";
+
+        foreach($categories as $cat)
+        {
+            $is_selected = "";
+            if($posts[0]->cat_id  == $cat->cat_id){
+                $is_selected = "selected";
+            }
+            $categories_options .= '<option value="'.$cat->cat_id.'" '.$is_selected.'>'.$cat->cat_name.'</option>';
+
+        }
+
+        $response = ['posts'=>$posts, 'categories_options'=>$categories_options,'hackerthons_options'=>$hackerthons_options];
+        return json_encode($response);
+    }
+
+    public function updatePost($id){
+
+        $title = Input::get('title');
+        $category = Input::get('category');
+        $content = Input::get('content');
+        DB::table('post')
+            ->where('pst_id', $id)
+            ->update(['pst_title' => $title,
+                    'pst_content' =>$content,
+                    'cat_id' =>$category]);
+    }
 }

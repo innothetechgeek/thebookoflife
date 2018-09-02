@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/homepage/css/laravel-fb6d5c57db.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7737514/7707592/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="assets/custom-select/custom-select.css" />
     <link rel="apple-touch-icon" href="/favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
 </head>
@@ -30,7 +30,7 @@
 <nav class="main">
     <a href="/" class="brand nav-block">
         <svg xmlns="http://www.w3.org/2000/svg" width="84.1" height="57.6" viewBox="0 0 84.1 57.6"><path fill="#FB503B" d="M83.8 26.9c-.6-.6-8.3-10.3-9.6-11.9-1.4-1.6-2-1.3-2.9-1.2s-10.6 1.8-11.7 1.9c-1.1.2-1.8.6-1.1 1.6.6.9 7 9.9 8.4 12l-25.5 6.1L21.2 1.5c-.8-1.2-1-1.6-2.8-1.5C16.6.1 2.5 1.3 1.5 1.3c-1 .1-2.1.5-1.1 2.9S17.4 41 17.8 42c.4 1 1.6 2.6 4.3 2 2.8-.7 12.4-3.2 17.7-4.6 2.8 5 8.4 15.2 9.5 16.7 1.4 2 2.4 1.6 4.5 1 1.7-.5 26.2-9.3 27.3-9.8 1.1-.5 1.8-.8 1-1.9-.6-.8-7-9.5-10.4-14 2.3-.6 10.6-2.8 11.5-3.1 1-.3 1.2-.8.6-1.4zm-46.3 9.5c-.3.1-14.6 3.5-15.3 3.7-.8.2-.8.1-.8-.2-.2-.3-17-35.1-17.3-35.5-.2-.4-.2-.8 0-.8S17.6 2.4 18 2.4c.5 0 .4.1.6.4 0 0 18.7 32.3 19 32.8.4.5.2.7-.1.8zm40.2 7.5c.2.4.5.6-.3.8-.7.3-24.1 8.2-24.6 8.4-.5.2-.8.3-1.4-.6s-8.2-14-8.2-14L68.1 32c.6-.2.8-.3 1.2.3.4.7 8.2 11.3 8.4 11.6zm1.6-17.6c-.6.1-9.7 2.4-9.7 2.4l-7.5-10.2c-.2-.3-.4-.6.1-.7.5-.1 9-1.6 9.4-1.7.4-.1.7-.2 1.2.5.5.6 6.9 8.8 7.2 9.1.3.3-.1.5-.7.6z"/></svg>
-        <span>Laravel</span>
+        <span>Hacker's e-jotter</span>
     </a>
 
     <div class="search nav-block">
@@ -39,10 +39,10 @@
     </div>
 
     <ul class="main-nav" v-if="! search">
-        <li class="nav-docs"><a href="/docs">Documentation</a></li>
-        <li class="nav-laracasts"><a href="https://laracasts.com">Laracasts</a></li>
+        <li class="nav-docs"><a href="/docs">Tapandsell code docs</a></li>
+        <li class="nav-laracasts"><a href="https://laracasts.com">General Notes</a></li>
         <li class="dropdown community-dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LE Framework notes <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
 
                 <li><a href="https://envoyer.io">Envoyer</a></li>
@@ -69,28 +69,12 @@
             </ul>
         </li>
     </ul>
-
     <div class="switcher">
-        <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                LiquidEdge Framework notes
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.6">LiquidEdge Tasks Documentations</a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.5">Tapandsell Code Documentation</a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="https://laravel.com/docs/master">LiquidEdge Framework notes</a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.4">General Notes</a>
-                </li>
-            </ul>
-        </div>
+        <select id = "slct-hackerthons">
+            @foreach($hackerthons as $hackerthon)
+            <option  value="{{$hackerthon->hck_id}}">{{ $hackerthon->hck_name}}</option>
+            @endforeach
+        </select>
     </div>
 
     <div class="responsive-sidebar-nav">
@@ -143,15 +127,6 @@
     <div class="slide-docs-nav">
         <h2>Documentation</h2>
         <ul>
-            <li>
-                <h2>Prologue</h2>
-                <ul>
-                    <li><a href="/docs/5.6/releases">Release Notes</a></li>
-                    <li><a href="/docs/5.6/upgrade">Upgrade Guide</a></li>
-                    <li><a href="/docs/5.6/contributions">Contribution Guide</a></li>
-                    <li><a href="/api/5.6">API Documentation</a></li>
-                </ul>
-            </li>
             <li>
                 <h2 data-toggle="collapse" href="#collapseCategories" >Getting Started</h2>
                 <ul id = "">
@@ -280,260 +255,57 @@
     <section class="sidebar">
         <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYILK3E&placement=laravelcom" id="_carbonads_js"></script>
         <small><a href="#" id="doc-expand" style="font-size: 11px; color: #B8B8B8;">Expand All</a></small>
-        <ul>
-            <li>
-                <h2>Prologue</h2>
-                <ul>
-                    <li><a href="/docs/5.6/releases">Release Notes</a></li>
-                    <li><a href="/docs/5.6/upgrade">Upgrade Guide</a></li>
-                    <li><a href="/docs/5.6/contributions">Contribution Guide</a></li>
-                    <li><a href="/api/5.6">API Documentation</a></li>
+        <div class = "hackerthons">
+            <ul class ="list-unstyled">
+                <li>
+                    <h2 data-toggle="collapse" href="#collapseCategories">Getting Started</h2>
+                    <ul  class="collapse list-unstyled" id = "collapseCategories"  style="padding-left:15px;">
+                        <li><a href="/docs/5.6/installation">Installation</a></li>
+                        <li><a href="/docs/5.6/configuration">Configuration</a></li>
+                        <li><a href="/docs/5.6/structure">Directory Structure</a></li>
+                        <li><a href="/docs/5.6/homestead">Homestead</a></li>
+                        <li><a href="/docs/5.6/valet">Valet</a></li>
+                        <li><a href="/docs/5.6/deployment">Deployment</a></li>
+                    </ul>
+                </li>
+            </ul>
+            @foreach($categories as $cat)
+                <ul class ="list-unstyled">
+                    <li>
+                        <h2 data-toggle="collapse" href="#{{str_replace(' ','',$cat->cat_name)}}">{{$cat->cat_name}}</h2>
+                        <ul  class="collapse list-unstyled" id = "{{str_replace(' ','',$cat->cat_name)}}"  style="padding-left:15px;">
+                            @foreach($posts as $post)
+                                @if($post->cat_id == $cat->cat_id)
+                                    <li><a href="">{{$post->pst_title}}</a></li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-            <li>
-                <h2 data-toggle="collapse" href="#collapseCategories">Getting Started</h2>
-                <ul  class="collapse" id = "collapseCategories">
-                    <li><a href="/docs/5.6/installation">Installation</a></li>
-                    <li><a href="/docs/5.6/configuration">Configuration</a></li>
-                    <li><a href="/docs/5.6/structure">Directory Structure</a></li>
-                    <li><a href="/docs/5.6/homestead">Homestead</a></li>
-                    <li><a href="/docs/5.6/valet">Valet</a></li>
-                    <li><a href="/docs/5.6/deployment">Deployment</a></li>
-                </ul>
-            </li>
-           </ul>
-    </section>
-    <article>
-        <h1>Middleware</h1>
-        <ul>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#defining-middleware">Defining Middleware</a></li>
-            <li><a href="#registering-middleware">Registering Middleware</a>
-                <ul>
-                    <li><a href="#global-middleware">Global Middleware</a></li>
-                    <li><a href="#assigning-middleware-to-routes">Assigning Middleware To Routes</a></li>
-                    <li><a href="#middleware-groups">Middleware Groups</a></li>
-                </ul></li>
-            <li><a href="#middleware-parameters">Middleware Parameters</a></li>
-            <li><a href="#terminable-middleware">Terminable Middleware</a></li>
-        </ul>
-        <p><a name="introduction"></a></p>
-        <h2><a href="#introduction">Introduction</a></h2>
-        <p>Middleware provide a convenient mechanism for filtering HTTP requests entering your application. For example, Laravel includes a middleware that verifies the user of your application is authenticated. If the user is not authenticated, the middleware will redirect the user to the login screen. However, if the user is authenticated, the middleware will allow the request to proceed further into the application.</p>
-        <p>Of course, additional middleware can be written to perform a variety of tasks besides authentication. A CORS middleware might be responsible for adding the proper headers to all responses leaving your application. A logging middleware might log all incoming requests to your application.</p>
-        <p>There are several middleware included in the Laravel framework, including middleware for authentication and CSRF protection. All of these middleware are located in the <code class=" language-php">app<span class="token operator">/</span>Http<span class="token operator">/</span>Middleware</code> directory.</p>
-        <p><a name="defining-middleware"></a></p>
-        <h2><a href="#defining-middleware">Defining Middleware</a></h2>
-        <p>To create a new middleware, use the <code class=" language-php">make<span class="token punctuation">:</span>middleware</code> Artisan command:</p>
-        <pre class=" language-php"><code class=" language-php">php artisan make<span class="token punctuation">:</span>middleware CheckAge</code></pre>
-        <p>This command will place a new <code class=" language-php">CheckAge</code> class within your <code class=" language-php">app<span class="token operator">/</span>Http<span class="token operator">/</span>Middleware</code> directory. In this middleware, we will only allow access to the route if the supplied <code class=" language-php">age</code> is greater than 200. Otherwise, we will redirect the users back to the <code class=" language-php">home</code> URI:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware</span><span class="token punctuation">;</span>
-
-<span class="token keyword">use</span> <span class="token package">Closure</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">CheckAge</span>
-<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle<span class="token punctuation">(</span></span><span class="token variable">$request</span><span class="token punctuation">,</span> Closure <span class="token variable">$next</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">age</span> <span class="token operator">&lt;=</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token function">redirect<span class="token punctuation">(</span></span><span class="token string">'home'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">return</span> <span class="token variable">$next</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-        <p>As you can see, if the given <code class=" language-php">age</code> is less than or equal to <code class=" language-php"><span class="token number">200</span></code>, the middleware will return an HTTP redirect to the client; otherwise, the request will be passed further into the application. To pass the request deeper into the application (allowing the middleware to "pass"), call the <code class=" language-php"><span class="token variable">$next</span></code> callback with the <code class=" language-php"><span class="token variable">$request</span></code>.</p>
-        <p>It's best to envision middleware as a series of "layers" HTTP requests must pass through before they hit your application. Each layer can examine the request and even reject it entirely.</p>
-        <blockquote class="has-icon tip">
-            <p><div class="flag"><span class="svg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" version="1.1" x="0px" y="0px" width="56.6px" height="87.5px" viewBox="0 0 56.6 87.5" enable-background="new 0 0 56.6 87.5" xml:space="preserve"><path fill="#FFFFFF" d="M28.7 64.5c-1.4 0-2.5-1.1-2.5-2.5v-5.7 -5V41c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v10.1 5 5.8C31.2 63.4 30.1 64.5 28.7 64.5zM26.4 0.1C11.9 1 0.3 13.1 0 27.7c-0.1 7.9 3 15.2 8.2 20.4 0.5 0.5 0.8 1 1 1.7l3.1 13.1c0.3 1.1 1.3 1.9 2.4 1.9 0.3 0 0.7-0.1 1.1-0.2 1.1-0.5 1.6-1.8 1.4-3l-2-8.4 -0.4-1.8c-0.7-2.9-2-5.7-4-8 -1-1.2-2-2.5-2.7-3.9C5.8 35.3 4.7 30.3 5.4 25 6.7 14.5 15.2 6.3 25.6 5.1c13.9-1.5 25.8 9.4 25.8 23 0 4.1-1.1 7.9-2.9 11.2 -0.8 1.4-1.7 2.7-2.7 3.9 -2 2.3-3.3 5-4 8L41.4 53l-2 8.4c-0.3 1.2 0.3 2.5 1.4 3 0.3 0.2 0.7 0.2 1.1 0.2 1.1 0 2.2-0.8 2.4-1.9l3.1-13.1c0.2-0.6 0.5-1.2 1-1.7 5-5.1 8.2-12.1 8.2-19.8C56.4 12 42.8-1 26.4 0.1zM43.7 69.6c0 0.5-0.1 0.9-0.3 1.3 -0.4 0.8-0.7 1.6-0.9 2.5 -0.7 3-2 8.6-2 8.6 -1.3 3.2-4.4 5.5-7.9 5.5h-4.1H28h-0.5 -3.6c-3.5 0-6.7-2.4-7.9-5.7l-0.1-0.4 -1.8-7.8c-0.4-1.1-0.8-2.1-1.2-3.1 -0.1-0.3-0.2-0.5-0.2-0.9 0.1-1.3 1.3-2.1 2.6-2.1H41C42.4 67.5 43.6 68.2 43.7 69.6zM37.7 72.5H26.9c-4.2 0-7.2 3.9-6.3 7.9 0.6 1.3 1.8 2.1 3.2 2.1h4.1 0.5 0.5 3.6c1.4 0 2.7-0.8 3.2-2.1L37.7 72.5z"></path></svg></span></div> All middleware are resolved via the <a href="/docs/5.6/container">service container</a>, so you may type-hint any dependencies you need within a middleware's constructor.</p>
-        </blockquote>
-        <h3>Before &amp; After Middleware</h3>
-        <p>Whether a middleware runs before or after a request depends on the middleware itself. For example, the following middleware would perform some task <strong>before</strong> the request is handled by the application:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware</span><span class="token punctuation">;</span>
-
-<span class="token keyword">use</span> <span class="token package">Closure</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">BeforeMiddleware</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle<span class="token punctuation">(</span></span><span class="token variable">$request</span><span class="token punctuation">,</span> Closure <span class="token variable">$next</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-       <span class="token comment" spellcheck="true"> // Perform action
-</span>
-        <span class="token keyword">return</span> <span class="token variable">$next</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-        <p>However, this middleware would perform its task <strong>after</strong> the request is handled by the application:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware</span><span class="token punctuation">;</span>
-
-<span class="token keyword">use</span> <span class="token package">Closure</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">AfterMiddleware</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle<span class="token punctuation">(</span></span><span class="token variable">$request</span><span class="token punctuation">,</span> Closure <span class="token variable">$next</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token variable">$next</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-       <span class="token comment" spellcheck="true"> // Perform action
-</span>
-        <span class="token keyword">return</span> <span class="token variable">$response</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-        <p><a name="registering-middleware"></a></p>
-        <h2><a href="#registering-middleware">Registering Middleware</a></h2>
-        <p><a name="global-middleware"></a></p>
-        <h3>Global Middleware</h3>
-        <p>If you want a middleware to run during every HTTP request to your application, list the middleware class in the <code class=" language-php"><span class="token variable">$middleware</span></code> property of your <code class=" language-php">app<span class="token operator">/</span>Http<span class="token operator">/</span>Kernel<span class="token punctuation">.</span>php</code> class.</p>
-        <p><a name="assigning-middleware-to-routes"></a></p>
-        <h3>Assigning Middleware To Routes</h3>
-        <p>If you would like to assign middleware to specific routes, you should first assign the middleware a key in your <code class=" language-php">app<span class="token operator">/</span>Http<span class="token operator">/</span>Kernel<span class="token punctuation">.</span>php</code> file. By default, the <code class=" language-php"><span class="token variable">$routeMiddleware</span></code> property of this class contains entries for the middleware included with Laravel. To add your own, append it to this list and assign it a key of your choosing. For example:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token comment" spellcheck="true">// Within App\Http\Kernel Class...
-</span>
-<span class="token keyword">protected</span> <span class="token variable">$routeMiddleware</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token string">'auth'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> \<span class="token scope">Illuminate<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>Authenticate<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-    <span class="token string">'auth.basic'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> \<span class="token scope">Illuminate<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>AuthenticateWithBasicAuth<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-    <span class="token string">'bindings'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> \<span class="token scope">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>SubstituteBindings<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-    <span class="token string">'can'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> \<span class="token scope">Illuminate<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>Authorize<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-    <span class="token string">'guest'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> \<span class="token scope">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>RedirectIfAuthenticated<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-    <span class="token string">'throttle'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> \<span class="token scope">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>ThrottleRequests<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
-        <p>Once the middleware has been defined in the HTTP kernel, you may use the <code class=" language-php">middleware</code> method to assign middleware to a route:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'admin/profile'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true"> //
-</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">middleware<span class="token punctuation">(</span></span><span class="token string">'auth'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-        <p>You may also assign multiple middleware to the route:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true"> //
-</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">middleware<span class="token punctuation">(</span></span><span class="token string">'first'</span><span class="token punctuation">,</span> <span class="token string">'second'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-        <p>When assigning middleware, you may also pass the fully qualified class name:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>CheckAge</span><span class="token punctuation">;</span>
-
-<span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'admin/profile'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true"> //
-</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">middleware<span class="token punctuation">(</span></span><span class="token scope">CheckAge<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-        <p><a name="middleware-groups"></a></p>
-        <h3>Middleware Groups</h3>
-        <p>Sometimes you may want to group several middleware under a single key to make them easier to assign to routes. You may do this using the <code class=" language-php"><span class="token variable">$middlewareGroups</span></code> property of your HTTP kernel.</p>
-        <p>Out of the box, Laravel comes with <code class=" language-php">web</code> and <code class=" language-php">api</code> middleware groups that contain common middleware you may want to apply to your web UI and API routes:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token comment" spellcheck="true">/**
- * The application's route middleware groups.
- *
- * @var array
- */</span>
-<span class="token keyword">protected</span> <span class="token variable">$middlewareGroups</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token string">'web'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
-        \<span class="token scope">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>EncryptCookies<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-        \<span class="token scope">Illuminate<span class="token punctuation">\</span>Cookie<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>AddQueuedCookiesToResponse<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-        \<span class="token scope">Illuminate<span class="token punctuation">\</span>Session<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>StartSession<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-        \<span class="token scope">Illuminate<span class="token punctuation">\</span>View<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>ShareErrorsFromSession<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-        \<span class="token scope">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>VerifyCsrfToken<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-        \<span class="token scope">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>SubstituteBindings<span class="token punctuation">::</span></span><span class="token keyword">class</span><span class="token punctuation">,</span>
-    <span class="token punctuation">]</span><span class="token punctuation">,</span>
-
-    <span class="token string">'api'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
-        <span class="token string">'throttle:60,1'</span><span class="token punctuation">,</span>
-        <span class="token string">'auth:api'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">]</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
-        <p>Middleware groups may be assigned to routes and controller actions using the same syntax as individual middleware. Again, middleware groups make it more convenient to assign many middleware to a route at once:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true"> //
-</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">middleware<span class="token punctuation">(</span></span><span class="token string">'web'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">group<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'middleware'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token string">'web'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true"> //
-</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-        <blockquote class="has-icon tip">
-            <p><div class="flag"><span class="svg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" version="1.1" x="0px" y="0px" width="56.6px" height="87.5px" viewBox="0 0 56.6 87.5" enable-background="new 0 0 56.6 87.5" xml:space="preserve"><path fill="#FFFFFF" d="M28.7 64.5c-1.4 0-2.5-1.1-2.5-2.5v-5.7 -5V41c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v10.1 5 5.8C31.2 63.4 30.1 64.5 28.7 64.5zM26.4 0.1C11.9 1 0.3 13.1 0 27.7c-0.1 7.9 3 15.2 8.2 20.4 0.5 0.5 0.8 1 1 1.7l3.1 13.1c0.3 1.1 1.3 1.9 2.4 1.9 0.3 0 0.7-0.1 1.1-0.2 1.1-0.5 1.6-1.8 1.4-3l-2-8.4 -0.4-1.8c-0.7-2.9-2-5.7-4-8 -1-1.2-2-2.5-2.7-3.9C5.8 35.3 4.7 30.3 5.4 25 6.7 14.5 15.2 6.3 25.6 5.1c13.9-1.5 25.8 9.4 25.8 23 0 4.1-1.1 7.9-2.9 11.2 -0.8 1.4-1.7 2.7-2.7 3.9 -2 2.3-3.3 5-4 8L41.4 53l-2 8.4c-0.3 1.2 0.3 2.5 1.4 3 0.3 0.2 0.7 0.2 1.1 0.2 1.1 0 2.2-0.8 2.4-1.9l3.1-13.1c0.2-0.6 0.5-1.2 1-1.7 5-5.1 8.2-12.1 8.2-19.8C56.4 12 42.8-1 26.4 0.1zM43.7 69.6c0 0.5-0.1 0.9-0.3 1.3 -0.4 0.8-0.7 1.6-0.9 2.5 -0.7 3-2 8.6-2 8.6 -1.3 3.2-4.4 5.5-7.9 5.5h-4.1H28h-0.5 -3.6c-3.5 0-6.7-2.4-7.9-5.7l-0.1-0.4 -1.8-7.8c-0.4-1.1-0.8-2.1-1.2-3.1 -0.1-0.3-0.2-0.5-0.2-0.9 0.1-1.3 1.3-2.1 2.6-2.1H41C42.4 67.5 43.6 68.2 43.7 69.6zM37.7 72.5H26.9c-4.2 0-7.2 3.9-6.3 7.9 0.6 1.3 1.8 2.1 3.2 2.1h4.1 0.5 0.5 3.6c1.4 0 2.7-0.8 3.2-2.1L37.7 72.5z"></path></svg></span></div> Out of the box, the <code class=" language-php">web</code> middleware group is automatically applied to your <code class=" language-php">routes<span class="token operator">/</span>web<span class="token punctuation">.</span>php</code> file by the <code class=" language-php">RouteServiceProvider</code>.</p>
-        </blockquote>
-        <p><a name="middleware-parameters"></a></p>
-        <h2><a href="#middleware-parameters">Middleware Parameters</a></h2>
-        <p>Middleware can also receive additional parameters. For example, if your application needs to verify that the authenticated user has a given "role" before performing a given action, you could create a <code class=" language-php">CheckRole</code> middleware that receives a role name as an additional argument.</p>
-        <p>Additional middleware parameters will be passed to the middleware after the <code class=" language-php"><span class="token variable">$next</span></code> argument:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware</span><span class="token punctuation">;</span>
-
-<span class="token keyword">use</span> <span class="token package">Closure</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">CheckRole</span>
-<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string  $role
-     * @return mixed
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle<span class="token punctuation">(</span></span><span class="token variable">$request</span><span class="token punctuation">,</span> Closure <span class="token variable">$next</span><span class="token punctuation">,</span> <span class="token variable">$role</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">user<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">hasRole<span class="token punctuation">(</span></span><span class="token variable">$role</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           <span class="token comment" spellcheck="true"> // Redirect...
-</span>        <span class="token punctuation">}</span>
-
-        <span class="token keyword">return</span> <span class="token variable">$next</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span></code></pre>
-        <p>Middleware parameters may be specified when defining the route by separating the middleware name and parameters with a <code class=" language-php"><span class="token punctuation">:</span></code>. Multiple parameters should be delimited by commas:</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">put<span class="token punctuation">(</span></span><span class="token string">'post/{id}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true"> //
-</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">middleware<span class="token punctuation">(</span></span><span class="token string">'role:editor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-        <p><a name="terminable-middleware"></a></p>
-        <h2><a href="#terminable-middleware">Terminable Middleware</a></h2>
-        <p>Sometimes a middleware may need to do some work after the HTTP response has been prepared. For example, the "session" middleware included with Laravel writes the session data to storage after the response has been fully prepared. If you define a <code class=" language-php">terminate</code> method on your middleware, it will automatically be called after the response is ready to be sent to the browser.</p>
-        <pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span>
-
-<span class="token keyword">namespace</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Session<span class="token punctuation">\</span>Middleware</span><span class="token punctuation">;</span>
-
-<span class="token keyword">use</span> <span class="token package">Closure</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">StartSession</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle<span class="token punctuation">(</span></span><span class="token variable">$request</span><span class="token punctuation">,</span> Closure <span class="token variable">$next</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token variable">$next</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">terminate<span class="token punctuation">(</span></span><span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$response</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-       <span class="token comment" spellcheck="true"> // Store the session data...
-</span>    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-        <p>The <code class=" language-php">terminate</code> method should receive both the request and the response. Once you have defined a terminable middleware, you should add it to the list of route or global middleware in the <code class=" language-php">app<span class="token operator">/</span>Http<span class="token operator">/</span>Kernel<span class="token punctuation">.</span>php</code> file.</p>
-        <p>When calling the <code class=" language-php">terminate</code> method on your middleware, Laravel will resolve a fresh instance of the middleware from the <a href="/docs/5.6/container">service container</a>. If you would like to use the same middleware instance when the <code class=" language-php">handle</code> and <code class=" language-php">terminate</code> methods are called, register the middleware with the container using the container's <code class=" language-php">singleton</code> method.</p>
-    </article>
-    <article>
-        <div class="the-404">
-            <div class="contain">
-                <div class="media">
-                    <img src="/assets/img/lamp-post.jpg">
-                </div>
-            </div>
+            @endforeach
         </div>
+    </section>
+    <article class = "post-content" style="padding-top:85px;">
+         <div>{!!$posts[0]->pst_content !!}</div>
     </article>
+    {{--<article>--}}
+        {{--<div class="the-404">--}}
+            {{--<div class="contain">--}}
+                {{--<div class="media">--}}
+                    {{--<img src="/assets/img/lamp-post.jpg">--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</article>--}}
 </div>
 
 <footer class="main">
     <ul>
-        <li class="nav-docs"><a href="/docs">Documentation</a></li>
-        <li class="nav-laracasts"><a href="https://laracasts.com">Laracasts</a></li>
-        <li class="nav-laravel-news"><a href="https://laravel-news.com">News</a></li>
-        <li class="nav-partners"><a href="/partners">Partners</a></li>
-        <li class="nav-forge"><a href="https://forge.laravel.com">Forge</a></li>
+        <li class="nav-docs"><a href="/docs">Tapandsell Code Docs</a></li>
+        <li class="nav-laracasts"><a href="https://laracasts.com">General Notes</a></li>
+        <li class="nav-laravel-news"><a href="https://laravel-news.com">LE Framework notes</a></li>
+        <li class="nav-partners"><a href="/partners">LE tasks docs</a></li>
+        <li class="nav-forge"><a href="https://forge.laravel.com">Laravel Notes</a></li>
 
         <li class="dropdown community-dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
@@ -563,7 +335,7 @@
             </ul>
         </li>
     </ul>
-    <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+    <p>Hack ! hack and hack until Jesus Comes back to earth. Copyright &copy; does it matter ?.</p>
     <p class="less-significant">
         <a href="http://jackmcdade.com">
             Designed by<br>
@@ -595,7 +367,56 @@
 {{--<script src="/assets/homepage/js/laravel-605edd931f.js"></script>--}}
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
 <script src="/assets/js/homepage/viewport-units-buggyfill.js"></script>
+<script src="/assets/custom-select/custom-select.js"></script>
 <script>
+
+$('#slct-hackerthons').on('change',function(){
+    var hackerthonId = $(this).val();
+    var hackerthon_name  =  $("#slct-hackerthons option:selected").text();
+
+    var url = "{{url('hackerthon-posts')}}/"+hackerthonId;
+    $.ajax({
+        url: url,
+        type: 'GET',
+        success:function(response){
+
+            response = JSON.parse(response)
+            console.log(response);
+             var html = "";
+            var mainContent = "";
+
+            var j = 0;
+             $(response.categories).each(function(catIdx, catObj){
+                 var collapseText = catObj.cat_name.replace(/\s/g, '');
+                 html += "<ul class = 'list-unstyled'>"+
+                     "<li>"+
+                     "<h2 data-toggle='collapse' href='#"+collapseText+"'>"+catObj.cat_name+"</h2>";
+
+                 $(response.posts).each(function(pstIndx, pstObj){
+                     if(pstObj.cat_id == catObj.cat_id){
+                         html += "<ul class='collapse list-unstyled' id='"+collapseText+"'  style='padding-left:15px;'>"+
+                                     "<li><a class = 'pst-title' id = '"+pstObj.pst_id+"' >"+pstObj.pst_title+"</a></li>"+
+                                 "</ul>";
+                     }
+                     console.log(pstObj);
+                     if(j== 0){
+                         mainContent += pstObj.pst_content;
+                     }
+                    j++;
+                 })
+                 html += "</li>"+
+                        "</ul>";
+
+
+             });
+
+
+            $('.post-content').html(mainContent);
+            $('.hackerthons').html(html)
+           // console.log(data);
+        }
+    })
+})
 
 </script>
 </body>
