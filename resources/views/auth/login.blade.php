@@ -18,8 +18,8 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
     <!-- Favicon and touch icons -->
@@ -65,7 +65,7 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="sr-only" for="form-username">Username</label>
-                                <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+                                <input type="text" name="email" placeholder="Username..." class="form-username form-control" id="form-username">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -73,13 +73,13 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="form-password">Password</label>
+                                <label class="sr-only" for="password">Password</label>
+                                <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                                <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
                             </div>
                             <button type="submit" class="btn">Sign in!</button>
                         </form>
@@ -104,7 +104,7 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 
 </div>
 
@@ -116,7 +116,7 @@
 <script src="assets/loginform/js/scripts.js"></script>
 
 <!--[if lt IE 10]>
-    <script src="assets/loginform/js/placeholder.js"></script>
+<script src="assets/loginform/js/placeholder.js"></script>
 <![endif]-->
 
 </body>

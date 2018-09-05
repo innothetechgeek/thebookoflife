@@ -19,6 +19,9 @@ Route::get('login' ,['as'=>'login',function(){
     return view('login');
 }]);
 
+Route::get('logout', array('as'=>'createuser','uses'=>'LogoutController@logout')
+);
+
 Route::get('home', 'HomeController@home');
 Route::post('create-post', 'AdminController@createPost');
 
@@ -41,3 +44,9 @@ Route::get('hackerthon-posts/{id}','HomeController@getPostsByHackerthonId');
 Route::get('post/{id}', 'AdminController@getPostById');
 Route::post('update-post/{id}', 'AdminController@updatePost');
 
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

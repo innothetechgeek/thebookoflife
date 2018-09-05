@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     //
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function createPost(){
         $title = Input::get('title');
         $category = Input::get('category');
@@ -24,6 +30,7 @@ class AdminController extends Controller
         $post->cat_id = $category;
         $post->pst_content = $content;
         $post->save();
+        return back();
     }
     public function createHackerthon(){
         $hackerthon_name = Input::get('hackerthon');
@@ -31,6 +38,7 @@ class AdminController extends Controller
         $hackerthon = new Hackerthon();
         $hackerthon->hck_name = $hackerthon_name;
         $hackerthon->save();
+        return back();
     }
 
     public function createCategory(){
@@ -41,6 +49,8 @@ class AdminController extends Controller
         $category->cat_name =  $cat_name;
         $category->hck_id = $hackerthon;
         $category->save();
+
+        return back();
     }
 
     public function getAdminData(){
