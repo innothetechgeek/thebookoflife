@@ -81,16 +81,16 @@
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.6">LE Tasks Documentations</a>
+                    <a  role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.6">LE Tasks Documentations</a>
                 </li>
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.5">Tapandsell Code Documentation</a>
+                    <a  href = "{{('logout')}}" role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.5">Tapandsell Code Documentation</a>
                 </li>
                 <li role="presentation">
                     <a role="menuitem" tabindex="-1" href="https://laravel.com/docs/master">LE Framework notes</a>
                 </li>
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.4">General Notes</a>
+                    <a  href = "{{('logout')}}" role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.4">General Notes</a>
                 </li>
             </ul>
         </div>

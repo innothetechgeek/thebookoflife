@@ -65,7 +65,7 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="sr-only" for="form-username">Username</label>
-                                <input type="text" name="email" placeholder="Username..." class="form-username form-control" id="form-username">
+                                <input type="text" name="email" placeholder="Username..." class="username form-control" id="form-username">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -75,7 +75,7 @@
                             <div class="form-group">
                                 <label class="sr-only" for="password">Password</label>
                                 <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
-                                @if ($errors->has('email'))
+                                @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>

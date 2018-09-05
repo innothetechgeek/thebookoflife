@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="assets/custom-select/custom-select.css" />
     <link rel="apple-touch-icon" href="/favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+    <script src="assets/bootstrap/js/popper.min.js"></script>
 </head>
 <body class="docs language-php">
 <div class="laracon-banner">
@@ -53,13 +54,27 @@
         </li>
     </ul>
     <div class="switcher">
-        <select id = "slct-hackerthons">
-            @foreach($hackerthons as $hackerthon)
-            <option  value="{{$hackerthon->hck_id}}">{{ $hackerthon->hck_name}}</option>
-            @endforeach
-        </select>
+        <div class="btn-group">
+            <button type="button" style="width:215px;" class="btn btn-danger dropdown-toggle btn-hackerthons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                LE Framework Notes
+            </button>
+            <div class="dropdown-menu">
+                @foreach($hackerthons as $hackerthon)
+                    <?php
+                    $logout = "#";
+                    $id = "";
+                    $loweCaseHackthon = strtolower($hackerthon->hck_name);
+                    $id = $hackerthon->hck_id;
+                    if($loweCaseHackthon != strtolower("LE Framework notes") && $loweCaseHackthon != strtolower("LE Task Docs") ){
+                        $logout = "/logout";
+                        $id = "";
+                    }
+                    ?>
+                    <a  href = "{{ $logout }}" class="dropdown-item hackerthon-item" id = "{{ $id }}" >{{ $hackerthon->hck_name }}</a>
+                @endforeach
+            </div>
+        </div>
     </div>
-
     <div class="responsive-sidebar-nav">
         <a href="#" class="toggle-slide menu-link btn">&#9776;</a>
     </div>
@@ -328,8 +343,11 @@
 <script src="/assets/custom-select/custom-select.js"></script>
 <script>
 
-$('#slct-hackerthons').on('change',function(){
-    var hackerthonId = $(this).val();
+$('.hackerthon-item').click(function(){
+    var hackerthonId = $(this).attr('id');
+
+
+    $('btn-hackerthons').html(hackerthonId);
     var hackerthon_name  =  $("#slct-hackerthons option:selected").text();
 
     var url = "{{url('hackerthon-posts')}}/"+hackerthonId;
