@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('login' ,['as'=>'login',function(){
     return view('login');
@@ -22,7 +19,8 @@ Route::get('login' ,['as'=>'login',function(){
 Route::get('logout', array('as'=>'createuser','uses'=>'LogoutController@logout')
 );
 
-Route::get('home', 'HomeController@home');
+Route::get('/', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 Route::post('create-post', 'AdminController@createPost');
 
 Route::get('admin', 'AdminController@getAdminData');

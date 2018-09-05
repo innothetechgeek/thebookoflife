@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Home - Laravel - The PHP Framework For Web Artisans</title>
+    <title>Home - Hacker's e-Jotter - The hacker's electronic jotter</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="author" content="Taylor Otwell">
-    <meta name="description" content="Laravel - The PHP framework for web artisans.">
-    <meta name="keywords" content="laravel, php, framework, web, artisans, taylor otwell">
+    <meta name="author" content="Khusela Mphokeli">
+    <meta name="description" content="Hackers e-Jotter - The hacker's electronic jotter.">
+    <meta name="keywords" content="jotter, programming notes, php, code snippets">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Miriam+Libre:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/homepage/css/laravel-fb6d5c57db.css">
@@ -20,8 +20,7 @@
 <body class="docs language-php">
 <div class="laracon-banner">
     <!-- <img src="/assets/svg/laracon-logo.svg" alt=""> -->
-    Join Laracon EU in Amsterdam on August 29th - 31st. Tickets are now available!
-    <a href="https://laracon.eu/2018">Get your ticket today!</a>
+   ~~ should be FUN, if it isn't fun then you're doing it wrong ~~
 
     <!--         Spark 6.0, the official SaaS starter-kit built on Laravel, is now available!
             <a href="https://spark.laravel.com">Get your copy today!</a> -->
@@ -40,17 +39,10 @@
     </div>
 
     <ul class="main-nav" v-if="! search">
-        <li class="nav-docs"><a href="/docs">Tapandsell code docs</a></li>
+        <li class="nav-docs"><a href="/logout">Tapandsell code docs</a></li>
         <li class="nav-laracasts"><a href="https://laracasts.com">General Notes</a></li>
         <li class="dropdown community-dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LE Framework notes <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="https://envoyer.io">Envoyer</a></li>
-                <li><a href="https://horizon.laravel.com">Horizon</a></li>
-                <li><a href="https://lumen.laravel.com">Lumen</a></li>
-                <li><a href="https://spark.laravel.com">Spark</a></li>
-
-            </ul>
         </li>
     </ul>
     <div class="switcher">
@@ -92,164 +84,21 @@
     <ul class="slide-main-nav">
         <li><a href="/">Home</a></li>
         <li class="nav-docs"><a href="/docs">Documentation</a></li>
-        <li class="nav-laracasts"><a href="https://laracasts.com">Laracasts</a></li>
+        <li class="nav-laracasts"><a href="">Laracasts</a></li>
         <li class="dropdown community-dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-
-                <li><a href="https://envoyer.io">Envoyer</a></li>
-                <li><a href="https://horizon.laravel.com">Horizon</a></li>
-                <li><a href="https://lumen.laravel.com">Lumen</a></li>
-                <li><a href="https://spark.laravel.com">Spark</a></li>
-
-                <li class="divider"></li>
-
-                <li><a href="https://laracon.com.au">Laracon AU</a></li>
-                <li><a href="https://laracon.eu">Laracon EU</a></li>
-                <li><a href="http://laracon.us">Laracon US</a></li>
-                <li><a href="https://laracon.net">Laracon Online</a></li>
-
-                <li class="divider"></li>
-
-                <li><a href="https://laravel.com/certification">Certification</a></li>
-                <li><a href="https://laracasts.com/discuss">Forums</a></li>
-                <li><a href="https://github.com/laravel/laravel">GitHub</a></li>
-                <li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
-                <li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
-                <li><a href="https://larachat.co">Slack</a></li>
-                <li><a href="https://twitter.com/laravelphp">Twitter</a></li>
             </ul>
         </li>
     </ul>
 
     <div class="slide-docs-nav">
-        <h2>Documentation</h2>
-        <ul>
-            <li>
-                <h2 data-toggle="collapse" href="#collapseCategories" >Getting Started</h2>
-                <ul id = "">
-                    <li><a href="/docs/5.6/installation">Installation</a></li>
-                    <li><a href="/docs/5.6/configuration">Configuration</a></li>
-                    <li><a href="/docs/5.6/structure">Directory Structure</a></li>
-                    <li><a href="/docs/5.6/homestead">Homestead</a></li>
-                    <li><a href="/docs/5.6/valet">Valet</a></li>
-                    <li><a href="/docs/5.6/deployment">Deployment</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>Architecture Concepts</h2>
-                <ul>
-                    <li><a href="/docs/5.6/lifecycle">Request Lifecycle</a></li>
-                    <li><a href="/docs/5.6/container">Service Container</a></li>
-                    <li><a href="/docs/5.6/providers">Service Providers</a></li>
-                    <li><a href="/docs/5.6/facades">Facades</a></li>
-                    <li><a href="/docs/5.6/contracts">Contracts</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>The Basics</h2>
-                <ul>
-                    <li><a href="/docs/5.6/routing">Routing</a></li>
-                    <li><a href="/docs/5.6/middleware">Middleware</a></li>
-                    <li><a href="/docs/5.6/csrf">CSRF Protection</a></li>
-                    <li><a href="/docs/5.6/controllers">Controllers</a></li>
-                    <li><a href="/docs/5.6/requests">Requests</a></li>
-                    <li><a href="/docs/5.6/responses">Responses</a></li>
-                    <li><a href="/docs/5.6/views">Views</a></li>
-                    <li><a href="/docs/5.6/urls">URL Generation</a></li>
-                    <li><a href="/docs/5.6/session">Session</a></li>
-                    <li><a href="/docs/5.6/validation">Validation</a></li>
-                    <li><a href="/docs/5.6/errors">Error Handling</a></li>
-                    <li><a href="/docs/5.6/logging">Logging</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>Frontend</h2>
-                <ul>
-                    <li><a href="/docs/5.6/blade">Blade Templates</a></li>
-                    <li><a href="/docs/5.6/localization">Localization</a></li>
-                    <li><a href="/docs/5.6/frontend">Frontend Scaffolding</a></li>
-                    <li><a href="/docs/5.6/mix">Compiling Assets</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>Security</h2>
-                <ul>
-                    <li><a href="/docs/5.6/authentication">Authentication</a></li>
-                    <li><a href="/docs/5.6/passport">API Authentication</a></li>
-                    <li><a href="/docs/5.6/authorization">Authorization</a></li>
-                    <li><a href="/docs/5.6/encryption">Encryption</a></li>
-                    <li><a href="/docs/5.6/hashing">Hashing</a></li>
-                    <li><a href="/docs/5.6/passwords">Password Reset</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>Digging Deeper</h2>
-                <ul>
-                    <li><a href="/docs/5.6/artisan">Artisan Console</a></li>
-                    <li><a href="/docs/5.6/broadcasting">Broadcasting</a></li>
-                    <li><a href="/docs/5.6/cache">Cache</a></li>
-                    <li><a href="/docs/5.6/collections">Collections</a></li>
-                    <li><a href="/docs/5.6/events">Events</a></li>
-                    <li><a href="/docs/5.6/filesystem">File Storage</a></li>
-                    <li><a href="/docs/5.6/helpers">Helpers</a></li>
-                    <li><a href="/docs/5.6/mail">Mail</a></li>
-                    <li><a href="/docs/5.6/notifications">Notifications</a></li>
-                    <li><a href="/docs/5.6/packages">Package Development</a></li>
-                    <li><a href="/docs/5.6/queues">Queues</a></li>
-                    <li><a href="/docs/5.6/scheduling">Task Scheduling</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>Database</h2>
-                <ul>
-                    <li><a href="/docs/5.6/database">Getting Started</a></li>
-                    <li><a href="/docs/5.6/queries">Query Builder</a></li>
-                    <li><a href="/docs/5.6/pagination">Pagination</a></li>
-                    <li><a href="/docs/5.6/migrations">Migrations</a></li>
-                    <li><a href="/docs/5.6/seeding">Seeding</a></li>
-                    <li><a href="/docs/5.6/redis">Redis</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>Eloquent ORM</h2>
-                <ul>
-                    <li><a href="/docs/5.6/eloquent">Getting Started</a></li>
-                    <li><a href="/docs/5.6/eloquent-relationships">Relationships</a></li>
-                    <li><a href="/docs/5.6/eloquent-collections">Collections</a></li>
-                    <li><a href="/docs/5.6/eloquent-mutators">Mutators</a></li>
-                    <li><a href="/docs/5.6/eloquent-resources">API Resources</a></li>
-                    <li><a href="/docs/5.6/eloquent-serialization">Serialization</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>Testing</h2>
-                <ul>
-                    <li><a href="/docs/5.6/testing">Getting Started</a></li>
-                    <li><a href="/docs/5.6/http-tests">HTTP Tests</a></li>
-                    <li><a href="/docs/5.6/dusk">Browser Tests</a></li>
-                    <li><a href="/docs/5.6/database-testing">Database</a></li>
-                    <li><a href="/docs/5.6/mocking">Mocking</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>Official Packages</h2>
-                <ul>
-                    <li><a href="/docs/5.6/billing">Cashier</a></li>
-                    <li><a href="/docs/5.6/envoy">Envoy</a></li>
-                    <li><a href="/docs/5.6/horizon">Horizon</a></li>
-                    <li><a href="/docs/5.6/passport">Passport</a></li>
-                    <li><a href="/docs/5.6/scout">Scout</a></li>
-                    <li><a href="/docs/5.6/socialite">Socialite</a></li>
-                </ul>
-            </li>
-        </ul>
+
     </div>
 
 </nav>
 
 <div class="docs-wrapper container">
-
     <section class="sidebar">
         <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYILK3E&placement=laravelcom" id="_carbonads_js"></script>
         <small><a href="#" id="doc-expand" style="font-size: 11px; color: #B8B8B8;">Expand All</a></small>
@@ -286,20 +135,11 @@
     <article class = "post-content" style="padding-top:85px;">
          <div>{!!$posts[0]->pst_content !!}</div>
     </article>
-    {{--<article>--}}
-        {{--<div class="the-404">--}}
-            {{--<div class="contain">--}}
-                {{--<div class="media">--}}
-                    {{--<img src="/assets/img/lamp-post.jpg">--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</article>--}}
 </div>
 
 <footer class="main">
     <ul>
-        <li class="nav-docs"><a href="/docs">Tapandsell Code Docs</a></li>
+        <li class="nav-docs"><a href="/logout">Tapandsell Code Docs</a></li>
         <li class="nav-laracasts"><a href="https://laracasts.com">General Notes</a></li>
         <li class="nav-laravel-news"><a href="https://laravel-news.com">LE Framework notes</a></li>
         <li class="nav-partners"><a href="/partners">LE tasks docs</a></li>

@@ -21,9 +21,7 @@
 </head>
 <body class="docs language-php">
 <div class="laracon-banner">
-    <!-- <img src="/assets/svg/laracon-logo.svg" alt=""> -->
-    Join Laracon EU in Amsterdam on August 29th - 31st. Tickets are now available!
-    <a href="https://laracon.eu/2018">Get your ticket today!</a>
+    ~~ should be FUN, if it isn't fun then you're doing it wrong ~~
 
     <!--         Spark 6.0, the official SaaS starter-kit built on Laravel, is now available!
             <a href="https://spark.laravel.com">Get your copy today!</a> -->
