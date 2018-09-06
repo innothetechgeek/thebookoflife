@@ -38,7 +38,7 @@
 						Open the book of life
 					</span>
                 <span class="login100-form-avatar">
-						<img src="assets/clean_login_form/images/avator2.jpg" alt="AVATAR">
+						<img src="assets/images/logo.png" alt="AVATAR">
 					</span>
 
                 <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">

@@ -1,0 +1,38 @@
+.cloud{
+    margin: 0;
+    color: #525252;
+    font-family: "Whitney SSm A","Whitney SSm B",sans-serif;
+    font-size: 16px;
+    background: url(/assets/images/cloud.jpg) repeat-x #fff;
+}
+
+body{
+    padding-top: 0px;
+}
+
+.btn{
+    background:#57b846;
+    border:none;
+}
+.btn:hover{
+    background:#66bd57;
+    border:none;
+}
+.btn:focus{
+    background:#66bd57;
+    border:none;
+}
+
+.btn:active{
+    background:#66bd57;
+    border:none;
+}
+
+.btn-danger:not(:disabled):not(.disabled).active, .btn-danger:not(:disabled):not(.disabled):active, .show>.btn-danger.dropdown-toggle {
+    background:#57b846;
+    border-color:#57b846;
+    box-shadow:none;
+}
+show>.btn-danger.dropdown-toggle:focus {
+    box-shadow: none;
+}
