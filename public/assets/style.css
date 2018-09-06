@@ -36,3 +36,10 @@ body{
 show>.btn-danger.dropdown-toggle:focus {
     box-shadow: none;
 }
+
+p{
+    font-family: "Whitney SSm A","Whitney SSm B",sans-serif;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #525252;
+}

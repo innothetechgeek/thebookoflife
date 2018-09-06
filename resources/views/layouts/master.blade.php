@@ -30,7 +30,7 @@
 <nav class="main">
     <a href="" class="brand nav-block">
         <img src="{{ url('assets/images/logo.png') }}"  width="84.1" height="59" style="margin-top: -4px;">
-        <span style="margin-left: 10px;" >The book of life</span>
+        <span style="margin-left: 10px; color:#57b846" >The book of life</span>
     </a>
 
     <div class="search nav-block">

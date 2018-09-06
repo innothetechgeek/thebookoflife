@@ -23,7 +23,7 @@ Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 Route::post('create-post', 'AdminController@createPost');
 
-Route::get('admin', 'AdminController@getAdminData');
+Route::get('hckr-admin', 'AdminController@getAdminData');
 
 Route::get('register', function(){
     return view('register');
