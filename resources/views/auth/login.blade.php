@@ -1,127 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <title>Home - Hacker's e-Jotter - The hacker's electronic jotter</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="author" content="Taylor Otwell">
-    <meta name="description" content="Hackers e-Jotter - The hacker's electronic jotter.">
-    <meta name="keywords" content="jotter, programming notes, php, code snippets">
+    <title>Login V6</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" href="assets/loginform/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/loginform/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/loginform/css/form-elements.css">
-    <link rel="stylesheet" href="assets/loginform/css/style.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="assets/loginform/ico/favicon.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/loginform/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/loginform/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/loginform/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/loginform/apple-touch-icon-57-precomposed.png">
-
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="assets/clean_login_form/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/css/util.css">
+    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/css/main.css">
+    <!--===============================================================================================-->
 </head>
-
 <body>
 
-<!-- Top content -->
-<div class="top-content">
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-85 p-b-20">
+                <form class="form-horizontal login100-form validate-form" method="POST" action="{{ route('login') }}">
+                    {{ csrf_field() }}
+					<span class="login100-form-title p-b-70">
+						Open the book of life
+					</span>
+                <span class="login100-form-avatar">
+						<img src="assets/clean_login_form/images/avator2.jpg" alt="AVATAR">
+					</span>
 
-    <div class="inner-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2 text">
-                    <h1 class="text-uppercase"><strong>Hacker's e-jotter</strong></h1>
-                    <div class="description">
-                        <p>
-                            Don't go where the path may lead
-                            Go instead where there's no path <a href="http://azmind.com"><strong>and leave a trail</strong></a>
-                        </p>
-                    </div>
+                <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+                    <input class="input100" type="text" name="email">
+                    <span class="focus-input100" data-placeholder="Username"></span>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 form-box">
-                    <div class="form-top">
-                        <div class="form-top-left">
-                            <h3>Login to our site</h3>
-                            <p>Enter your username and password to log on:</p>
-                        </div>
-                        <div class="form-top-right">
-                            <i class="fa fa-key"></i>
-                        </div>
-                    </div>
-                    <div class="form-bottom">
-                        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                            {{ csrf_field() }}
-                            <div class="form-group">
-                                <label class="sr-only" for="form-username">Username</label>
-                                <input type="text" name="email" placeholder="Username..." class="username form-control" id="form-username">
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="password">Password</label>
-                                <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <button type="submit" class="btn">Sign in!</button>
-                        </form>
-                    </div>
+                @if ($errors->has('email'))
+                    <span class="help-block"  style="color:red">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                @endif
+
+                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+                    <input class="input100" type="password" name="password">
+                    <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 social-login">
-                    <h3>...or login with:</h3>
-                    <div class="social-login-buttons">
-                        <a class="btn btn-link-1 btn-link-1-facebook" href="#">
-                            <i class="fa fa-facebook"></i> Facebook
-                        </a>
-                        <a class="btn btn-link-1 btn-link-1-twitter" href="#">
-                            <i class="fa fa-twitter"></i> Twitter
-                        </a>
-                        <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
-                            <i class="fa fa-google-plus"></i> Google Plus
-                        </a>
-                    </div>
+                @if ($errors->has('password'))
+                    <span class="help-block" style="color:red">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                @endif
+                <div class="container-login100-form-btn">
+                    <button type="submit" class="login100-form-btn">
+                        Open
+                    </button>
                 </div>
-            </div>
+
+                <ul class="login-more p-t-190">
+                    <li class="m-b-8">
+							<span class="txt1">
+								Forgot
+							</span>
+
+                        <a href="#" class="txt2">
+                            Username / Password?
+                        </a>
+                    </li>
+
+                    <li>
+							<span class="txt1">
+								Don’t have an account?
+							</span>
+                        <button type="submit" class="btn txt2">Sign in!</button>
+                    </li>
+                </ul>
+            </form>
         </div>
     </div>
 </div>
-
-</div>
-
-
-<!-- Javascript -->
-<script src="assets/loginform/js/jquery-1.11.1.min.js"></script>
-<script src="assets/loginform/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/loginform/js/jquery.backstretch.min.js"></script>
-<script src="assets/loginform/js/scripts.js"></script>
-
-<!--[if lt IE 10]>
-<script src="assets/loginform/js/placeholder.js"></script>
-<![endif]-->
+<div id="dropDownSelect1"></div>
+<!--===============================================================================================-->
+<script src="assets/clean_login_form/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/clean_login_form/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/clean_login_form/vendor/bootstrap/js/popper.js"></script>
+<script src="assets/clean_login_form/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/clean_login_form/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/clean_login_form/vendor/daterangepicker/moment.min.js"></script>
+<script src="assets/clean_login_form/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="assets/clean_login_form/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="assets/clean_login_form/js/main.js"></script>
 
 </body>
-
 </html>
