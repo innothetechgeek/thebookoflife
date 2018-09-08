@@ -47,7 +47,11 @@
                         <ul  class="collapse list-unstyled" id = "{{str_replace(' ','',$cat->cat_name)}}"  style="padding-left:15px;">
                             @foreach($posts as $post)
                                 @if($post->cat_id == $cat->cat_id)
-                                    <li><a href="">{{$post->pst_title}}</a></li>
+                                    <?php
+                                     $slug = $post->pst_slug;
+                                     $cat_id = $post->cat_id;
+                                    ?>
+                                    <li><a class="post-title" href="{{url('chapter/'.$cat_id."/".$slug)}}" id = "{{$post->pst_id}}">{{$post->pst_title}}</a></li>
                                 @endif
                             @endforeach
                         </ul>
@@ -56,8 +60,11 @@
             @endforeach
         </div>
     </section>
-    <article class = "post-content" style="padding-top:65px;">
-         <div>{!!$posts[0]->pst_content !!}</div>
+    <article class = "post-content">
+         <div>
+             <h1 style="color:#525252;font-size: 48px;font-weight:200; margin: .67em 0;"> {{ $post_content[0]->pst_title }} </h1>
+             {!!  $post_content[0]->pst_content !!}
+         </div>
     </article>
 </div>
 @endsection
@@ -114,8 +121,12 @@ $('.hackerthon-item').click(function(){
 
                  $(response.posts).each(function(pstIndx, pstObj){
                      if(pstObj.cat_id == catObj.cat_id){
+
+                         var url = '{{ url("chapter") }}';
+
+                         url = url+"/"+pstObj.cat_id+"/"+pstObj.pst_slug;
                          html += "<ul class='collapse list-unstyled' id='"+collapseText+"'  style='padding-left:15px;'>"+
-                                     "<li><a class = 'pst-title' id = '"+pstObj.pst_id+"' >"+pstObj.pst_title+"</a></li>"+
+                                     "<li><a  href='"+url+"'  class = 'post-title' id = '"+pstObj.pst_id+"' >"+pstObj.pst_title+"</a></li>"+
                                  "</ul>";
                      }
                      console.log(pstObj);
@@ -136,6 +147,33 @@ $('.hackerthon-item').click(function(){
            // console.log(data);
         }
     })
+})
+
+    $('.post-title a').click(function(){
+        alert($(this).val());
+    });
+
+$("#search-input").keyup(function(){
+    //alert('yes yes');
+    var keyword = $(this).val();
+    var url = "{{url('autocomplete')}}"+"/"+keyword;
+    $.ajax({
+        type: "GET",
+        url: url,
+        beforeSend: function(){
+            $("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            $("#suggesstion-box").show();
+            $("#suggesstion-box").html(data);
+            $("#search-box").css("background","#FFF");
+        }
+    });
+});
+
+$('body').click(function () {
+    //alert('hello');
+    $('#suggesstion-box').hide();
 })
 </script>
 @endsection

@@ -136,6 +136,7 @@ class AdminController extends Controller
             ->where('pst_id', $id)
             ->update(['pst_title' => $title,
                     'pst_content' =>$content,
+                    'pst_slug' => str_slug($title),
                     'cat_id' =>$category]);
     }
 }

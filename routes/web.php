@@ -41,10 +41,12 @@ Route::get('posts','AdminController@getPosts');
 Route::get('hackerthon-posts/{id}','HomeController@getPostsByHackerthonId');
 Route::get('post/{id}', 'AdminController@getPostById');
 Route::post('update-post/{id}', 'AdminController@updatePost');
-
-
+Route::get('chapter/{hackerthon}/{post_title_slug}',
+    array('as'=>'chapter','uses'=>'HomeController@getPostBySlug'));
+Route::get('/autocomplete/{searchval}','HomeController@autoComplete');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

@@ -43,3 +43,29 @@ p{
     line-height: 1.9;
     color: #525252;
 }
+
+#suggesstion-box{
+    margin-top:30px;
+    width: 800px;
+    left: -61px!important;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #dee0df;
+    border-top: solid 1px #dee0df;
+    border-radius: 0 0 2px 2px;
+    margin-left: 30px;
+}
+
+#autocomplete-post-content ul{
+        display: none;
+}
+
+.autocompletepar{
+    background:#f9f9f9;
+}
+.autocompletepar:hover{
+    background:#f1f1f1;
+}
+
+
+
