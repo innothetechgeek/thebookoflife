@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Home - Hacker's e-Jotter - The hacker's electronic jotter</title>
+    <title>Home - The Book of life - The hacker's electronic jotter</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="Khusela Mphokeli">
     <meta name="description" content="Hackers e-Jotter - The hacker's electronic jotter.">
@@ -28,7 +28,7 @@
 <span class="overlay"></span>
 
 <nav class="main">
-    <a href="" class="brand nav-block">
+    <a href=""  style="text-decoration: none;" class="brand nav-block">
         <img src="{{ url('assets/images/logo.png') }}"  width="84.1" height="59" style="margin-top: -4px;">
         <span style="margin-left: 10px; color:#57b846" >The book of life</span>
     </a>
@@ -44,7 +44,7 @@
 
     <ul class="main-nav" v-if="! search">
         <li class="nav-docs"><a href="/logout">Tapandsell docs</a></li>
-        <li class="nav-laracasts"><a href="https://laracasts.com">General Notes</a></li>
+        <li class="nav-laracasts"><a href="">General Notes</a></li>
         <li class="dropdown community-dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Laravel notes <span class="caret"></span></a>
         </li>
@@ -79,7 +79,7 @@
 <footer class="main">
     <ul>
         <li class="nav-docs"><a href="/logout">Tapandsell Code Docs</a></li>
-        <li class="nav-laracasts"><a href="https://laracasts.com">General Notes</a></li>
+        <li class="nav-laracasts"><a href="">General Notes</a></li>
         <li class="nav-laravel-news"><a href="">LE Framework notes</a></li>
         <li class="nav-partners"><a href="">LE tasks docs</a></li>
         <li class="nav-forge"><a href="">Laravel Notes</a></li>
@@ -97,5 +97,10 @@
     </p>
 </footer>
 @yield('scripts')
+<!-- Initialize the editor. -->
+<script> $(function() { $('textarea').froalaEditor({
+        toolbarButtons: ['bold', 'italic', 'underline','color','fontFamily','formatUL','formatOL','fontSize','insertImage','h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'html','outdent','insertLink', 'indent','|', 'undo', 'redo']
+    })  });
+</script>
 </body>
 </html>

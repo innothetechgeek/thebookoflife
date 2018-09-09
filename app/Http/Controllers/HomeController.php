@@ -97,7 +97,7 @@ class HomeController extends Controller
             $route = $app_url."/chapter"."/".$params;
 
             $display_sentence = $this->generate_display_sentence($content->pst_content,$searchVale);
-            $response .= "<a style='text-decoration: none' href='$route'>
+            $response .= "<a style='text-decoration: none;color: #2b2b2b;' href='$route'>
                             <li>
                                 <h5>$content->pst_title</h5>
                                 <p class='autocompletepar'>$display_sentence</p>

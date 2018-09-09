@@ -19,24 +19,23 @@
     <div class="slide-docs-nav">
 
     </div>
-
 </nav>
 
 <div class="docs-wrapper container">
     <section class="sidebar">
-        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYILK3E&placement=laravelcom" id="_carbonads_js"></script>
+        <script async type="text/javascript" src="" id="_carbonads_js"></script>
         <small><a href="#" id="doc-expand" style="font-size: 11px; color: #B8B8B8;">Expand All</a></small>
         <div class = "hackerthons">
             <ul class ="list-unstyled">
                 <li>
                     <h2 data-toggle="collapse" href="#collapseCategories">Getting Started</h2>
                     <ul  class="collapse list-unstyled" id = "collapseCategories"  style="padding-left:15px;">
-                        <li><a href="/docs/5.6/installation">Installation</a></li>
-                        <li><a href="/docs/5.6/configuration">Configuration</a></li>
-                        <li><a href="/docs/5.6/structure">Directory Structure</a></li>
-                        <li><a href="/docs/5.6/homestead">Homestead</a></li>
-                        <li><a href="/docs/5.6/valet">Valet</a></li>
-                        <li><a href="/docs/5.6/deployment">Deployment</a></li>
+                        <li><a href="">Installation</a></li>
+                        <li><a href="">Configuration</a></li>
+                        <li><a href="">Directory Structure</a></li>
+                        <li><a href="">Homestead</a></li>
+                        <li><a href="">Valet</a></li>
+                        <li><a href="">Deployment</a></li>
                     </ul>
                 </li>
             </ul>
@@ -82,7 +81,7 @@
 
 <script id="search_footer_template" type="text/template">
     <div class="footer">
-        <a target="_blank" href="https://www.algolia.com/?utm_source=laravel&utm_medium=link&utm_campaign=laravel_documentation_search">
+        <a target="_blank" href="">
             <img width="105" src="/assets/homepage/img/algolia-logo.svg">
             <div style="clear: both"></div>
         </a>
@@ -175,6 +174,12 @@ $('body').click(function () {
     //alert('hello');
     $('#suggesstion-box').hide();
 })
+function displayMotivationalQuote(){
+    
+}
+setInterval("my_function();",5000);
+
+
 </script>
 @endsection
 

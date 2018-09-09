@@ -2,9 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Home - Laravel - The PHP Framework For Web Artisans</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home - The Book of life - The hacker's electronic jotter</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Khusela Mphokeli">
+    <meta name="description" content="Hackers e-Jotter - The hacker's electronic jotter.">
     <link rel="stylesheet" href="assets/homepage/css/laravel-fb6d5c57db.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     {{--what you see is what you get--}}
@@ -30,8 +32,8 @@
 
 <nav class="main">
     <a href="/" class="brand nav-block">
-        <svg xmlns="http://www.w3.org/2000/svg" width="84.1" height="57.6" viewBox="0 0 84.1 57.6"><path fill="#FB503B" d="M83.8 26.9c-.6-.6-8.3-10.3-9.6-11.9-1.4-1.6-2-1.3-2.9-1.2s-10.6 1.8-11.7 1.9c-1.1.2-1.8.6-1.1 1.6.6.9 7 9.9 8.4 12l-25.5 6.1L21.2 1.5c-.8-1.2-1-1.6-2.8-1.5C16.6.1 2.5 1.3 1.5 1.3c-1 .1-2.1.5-1.1 2.9S17.4 41 17.8 42c.4 1 1.6 2.6 4.3 2 2.8-.7 12.4-3.2 17.7-4.6 2.8 5 8.4 15.2 9.5 16.7 1.4 2 2.4 1.6 4.5 1 1.7-.5 26.2-9.3 27.3-9.8 1.1-.5 1.8-.8 1-1.9-.6-.8-7-9.5-10.4-14 2.3-.6 10.6-2.8 11.5-3.1 1-.3 1.2-.8.6-1.4zm-46.3 9.5c-.3.1-14.6 3.5-15.3 3.7-.8.2-.8.1-.8-.2-.2-.3-17-35.1-17.3-35.5-.2-.4-.2-.8 0-.8S17.6 2.4 18 2.4c.5 0 .4.1.6.4 0 0 18.7 32.3 19 32.8.4.5.2.7-.1.8zm40.2 7.5c.2.4.5.6-.3.8-.7.3-24.1 8.2-24.6 8.4-.5.2-.8.3-1.4-.6s-8.2-14-8.2-14L68.1 32c.6-.2.8-.3 1.2.3.4.7 8.2 11.3 8.4 11.6zm1.6-17.6c-.6.1-9.7 2.4-9.7 2.4l-7.5-10.2c-.2-.3-.4-.6.1-.7.5-.1 9-1.6 9.4-1.7.4-.1.7-.2 1.2.5.5.6 6.9 8.8 7.2 9.1.3.3-.1.5-.7.6z"/></svg>
-        <span>Hacker's e-jotter</span>
+        <img src="{{ url('assets/images/logo.png') }}"  width="84.1" height="59" style="margin-top: -4px;">
+        <span style="margin-left: 10px; color:#57b846" >The book of life</span>
     </a>
 
     <div class="search nav-block invisible">
@@ -40,34 +42,10 @@
     </div>
 
     <ul class="main-nav" v-if="! search">
-        <li class="nav-docs"><a href="/docs">Documentation</a></li>
-        <li class="nav-laracasts"><a href="https://laracasts.com">Laracasts</a></li>
+        <li class="nav-docs"><a href="/logout">Tapandsell docs</a></li>
+        <li class="nav-laracasts"><a href="">General Notes</a></li>
         <li class="dropdown community-dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-
-                <li><a href="https://envoyer.io">Envoyer</a></li>
-                <li><a href="https://horizon.laravel.com">Horizon</a></li>
-                <li><a href="https://lumen.laravel.com">Lumen</a></li>
-                <li><a href="https://spark.laravel.com">Spark</a></li>
-
-                <li class="divider"></li>
-
-                <li><a href="https://laracon.com.au">Laracon AU</a></li>
-                <li><a href="https://laracon.eu">Laracon EU</a></li>
-                <li><a href="http://laracon.us">Laracon US</a></li>
-                <li><a href="https://laracon.net">Laracon Online</a></li>
-
-                <li class="divider"></li>
-
-                <li><a href="https://laravel.com/certification">Certification</a></li>
-                <li><a href="https://laracasts.com/discuss">Forums</a></li>
-                <li><a href="https://github.com/laravel/laravel">GitHub</a></li>
-                <li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
-                <li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
-                <li><a href="https://larachat.co">Slack</a></li>
-                <li><a href="https://twitter.com/laravelphp">Twitter</a></li>
-            </ul>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Laravel notes <span class="caret"></span></a>
         </li>
     </ul>
 
@@ -79,16 +57,16 @@
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <li role="presentation">
-                    <a  role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.6">LE Tasks Documentations</a>
+                    <a  role="menuitem" tabindex="-1" href="">LE Tasks Documentations</a>
                 </li>
                 <li role="presentation">
-                    <a  href = "{{('logout')}}" role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.5">Tapandsell Code Documentation</a>
+                    <a  href = "{{('logout')}}" role="menuitem" tabindex="-1" href="">Tapandsell Code Documentation</a>
                 </li>
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="https://laravel.com/docs/master">LE Framework notes</a>
+                    <a role="menuitem" tabindex="-1" href="">LE Framework notes</a>
                 </li>
                 <li role="presentation">
-                    <a  href = "{{('logout')}}" role="menuitem" tabindex="-1" href="https://laravel.com/docs/5.4">General Notes</a>
+                    <a  href = "{{('logout')}}" role="menuitem" tabindex="-1" href="">General Notes</a>
                 </li>
             </ul>
         </div>
@@ -111,32 +89,11 @@
     <ul class="slide-main-nav">
         <li><a href="/">Home</a></li>
         <li class="nav-docs"><a href="/docs">Documentation</a></li>
-        <li class="nav-laracasts"><a href="https://laracasts.com">Laracasts</a></li>
+        <li class="nav-laracasts"><a href="">Laracasts</a></li>
         <li class="dropdown community-dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
 
-                <li><a href="https://envoyer.io">Envoyer</a></li>
-                <li><a href="https://horizon.laravel.com">Horizon</a></li>
-                <li><a href="https://lumen.laravel.com">Lumen</a></li>
-                <li><a href="https://spark.laravel.com">Spark</a></li>
-
-                <li class="divider"></li>
-
-                <li><a href="https://laracon.com.au">Laracon AU</a></li>
-                <li><a href="https://laracon.eu">Laracon EU</a></li>
-                <li><a href="http://laracon.us">Laracon US</a></li>
-                <li><a href="https://laracon.net">Laracon Online</a></li>
-
-                <li class="divider"></li>
-
-                <li><a href="https://laravel.com/certification">Certification</a></li>
-                <li><a href="https://laracasts.com/discuss">Forums</a></li>
-                <li><a href="https://github.com/laravel/laravel">GitHub</a></li>
-                <li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
-                <li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
-                <li><a href="https://larachat.co">Slack</a></li>
-                <li><a href="https://twitter.com/laravelphp">Twitter</a></li>
             </ul>
         </li>
     </ul>
@@ -493,41 +450,17 @@
 </div>
 <footer class="main">
     <ul>
-        <li class="nav-docs"><a href="/docs">Documentation</a></li>
-        <li class="nav-laracasts"><a href="https://laracasts.com">Laracasts</a></li>
-        <li class="nav-laravel-news"><a href="https://laravel-news.com">News</a></li>
-        <li class="nav-partners"><a href="/partners">Partners</a></li>
-        <li class="nav-forge"><a href="https://forge.laravel.com">Forge</a></li>
+        <li class="nav-docs"><a href="/logout">Tapandsell Code Docs</a></li>
+        <li class="nav-laracasts"><a href="">General Notes</a></li>
+        <li class="nav-laravel-news"><a href="">LE Framework notes</a></li>
+        <li class="nav-partners"><a href="">LE tasks docs</a></li>
+        <li class="nav-forge"><a href="">Laravel Notes</a></li>
 
         <li class="dropdown community-dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-
-                <li><a href="https://envoyer.io">Envoyer</a></li>
-                <li><a href="https://horizon.laravel.com">Horizon</a></li>
-                <li><a href="https://lumen.laravel.com">Lumen</a></li>
-                <li><a href="https://spark.laravel.com">Spark</a></li>
-
-                <li class="divider"></li>
-
-                <li><a href="https://laracon.com.au">Laracon AU</a></li>
-                <li><a href="https://laracon.eu">Laracon EU</a></li>
-                <li><a href="http://laracon.us">Laracon US</a></li>
-                <li><a href="https://laracon.net">Laracon Online</a></li>
-
-                <li class="divider"></li>
-
-                <li><a href="https://laravel.com/certification">Certification</a></li>
-                <li><a href="https://laracasts.com/discuss">Forums</a></li>
-                <li><a href="https://github.com/laravel/laravel">GitHub</a></li>
-                <li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
-                <li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
-                <li><a href="https://larachat.co">Slack</a></li>
-                <li><a href="https://twitter.com/laravelphp">Twitter</a></li>
-            </ul>
+            <a href="{{url(('logout'))}}">Log out<span class="caret"></span></a>
         </li>
     </ul>
-    <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+    <p>Hack ! hack and hack until Jesus Comes back to earth. Copyright &copy; does it matter ?.</p>
     <p class="less-significant">
         <a href="http://jackmcdade.com">
             Designed by<br>
@@ -535,7 +468,6 @@
         </a>
     </p>
 </footer>
-
 <script id="search_empty_template" type="text/template">
     <div class="autocomplete-wrapper empty">
         {{--<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>--}}
