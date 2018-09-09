@@ -23,7 +23,7 @@
 
 </div>
 <div class="laracon-banner">
-    ~~ should be FUN, if it isn't fun then you're doing it wrong ~~
+
 </div>
 <span class="overlay"></span>
 
@@ -97,10 +97,6 @@
     </p>
 </footer>
 @yield('scripts')
-<!-- Initialize the editor. -->
-<script> $(function() { $('textarea').froalaEditor({
-        toolbarButtons: ['bold', 'italic', 'underline','color','fontFamily','formatUL','formatOL','fontSize','insertImage','h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'html','outdent','insertLink', 'indent','|', 'undo', 'redo']
-    })  });
 </script>
 </body>
 </html>

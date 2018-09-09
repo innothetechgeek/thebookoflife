@@ -93,6 +93,33 @@
 <script src="/assets/custom-select/custom-select.js"></script>
 <script>
 
+    var motivationalQuoates = ["Without requirements or design," +
+    " programming is the art of adding bugs to an empty text file",
+        "There are two ways to write error-free programs; only the third one works",
+        "A good programmer is someone who always looks both ways before crossing a one-way street.",
+        "When the only tool you have is a hammer, everything you see becomes a nail.",
+        "Blame doesn’t fix bugs",
+        "if it's taking you too long to get it to work, you're doing it wrong.",
+        "Hack Hack, and hack until Jesus comes back to earth.",
+        "if at first you don’t succeed; call it version 1.0",
+        "If Internet Explorer is brave enough to ask to be your default browser, You are brave enough to ask that girl out.",
+        "Don't go where the path may lead, go instead where there's no path and leave a trail.",
+        "If Internet Explorer is brave enough to ask to be your default browser, You are brave enough to ask that girl out.",
+        "If Internet Explorer is brave enough to ask to be your default browser, You are brave enough to ask that girl out."];
+
+    $('document').ready(function(){
+        var index = Math.floor((Math.random() * motivationalQuoates.length) + 1);
+        $('.laracon-banner').hide().fadeIn(3000).html('~~ '+motivationalQuoates[index]+' ~~ ');
+    });
+
+    function displayMotivationalQuote(){
+
+        var index = Math.floor((Math.random() * motivationalQuoates.length) + 1);
+
+        $('.laracon-banner').hide().fadeIn(3000).html('~~ '+motivationalQuoates[index]+' ~~ ');
+    }
+    setInterval("displayMotivationalQuote();",20000);
+
 $('.hackerthon-item').click(function(){
     var hackerthonId = $(this).attr('id');
 
@@ -148,9 +175,9 @@ $('.hackerthon-item').click(function(){
     })
 })
 
-    $('.post-title a').click(function(){
-        alert($(this).val());
-    });
+$('.post-title a').click(function(){
+    alert($(this).val());
+});
 
 $("#search-input").keyup(function(){
     //alert('yes yes');
@@ -174,10 +201,7 @@ $('body').click(function () {
     //alert('hello');
     $('#suggesstion-box').hide();
 })
-function displayMotivationalQuote(){
-    
-}
-setInterval("my_function();",5000);
+
 
 
 </script>

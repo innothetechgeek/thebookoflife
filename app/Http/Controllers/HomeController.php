@@ -77,7 +77,7 @@ class HomeController extends Controller
         $j = 0;
         $searchvalues = explode(" ", $searchVale);
 
-
+        $response = "";
         $autocomplete_content = Post::where(function ($q) use ($searchvalues) {
             foreach ($searchvalues as $value) {
                 $q->orWhere('pst_title', 'like', "%{$value}%");
