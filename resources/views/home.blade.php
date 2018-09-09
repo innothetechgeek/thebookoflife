@@ -23,6 +23,7 @@
 
 <div class="docs-wrapper container">
     <section class="sidebar">
+        <div id="carbonads"><span><span class="carbon-wrap"><a href="//srv.carbonads.net/ads/click/x/GTND42QICYBI427MFTY4YKQMCKSDV237F6ADEZ3JCW7IK2JNF67I4KQKC6BIC2JWF6ADTK3EHJNCLSIZ?segment=placement:laravelcom;" class="carbon-img" target="_blank" rel="noopener"><img src="https://cdn4.buysellads.net/uu/1/8026/1533151640-board_timeline_yellow.png" alt="" border="0" height="100" width="130" style="max-width: 130px;"></a><a href="//srv.carbonads.net/ads/click/x/GTND42QICYBI427MFTY4YKQMCKSDV237F6ADEZ3JCW7IK2JNF67I4KQKC6BIC2JWF6ADTK3EHJNCLSIZ?segment=placement:laravelcom;" class="carbon-text" target="_blank" rel="noopener">The new generation of project management tools is here and it’s visual.</a></span><a href="http://carbonads.net/?utm_source=laravelcom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener">ads via Carbon</a><img src="https://ad.doubleclick.net/ddm/trackimp/N728909.734586CARBONADS.NET/B20652854.212994676;dc_trk_aid=414618443;dc_trk_cid=104370342;ord=153650129;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" border="0" height="1" width="1" style="display: none;"></span></div>
         <script async type="text/javascript" src="" id="_carbonads_js"></script>
         <small><a href="#" id="doc-expand" style="font-size: 11px; color: #B8B8B8;">Expand All</a></small>
         <div class = "hackerthons">
@@ -61,7 +62,8 @@
     </section>
     <article class = "post-content">
          <div>
-             <h1 style="color:#525252;font-size: 48px;font-weight:200; margin: .67em 0;"> {{ $post_content[0]->pst_title }} </h1>
+
+             <h1> {{ $post_content[0]->pst_title }} </h1>
              {!!  $post_content[0]->pst_content !!}
          </div>
     </article>
@@ -91,9 +93,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
 <script src="/assets/js/homepage/viewport-units-buggyfill.js"></script>
 <script src="/assets/custom-select/custom-select.js"></script>
+<script src="/assets/overlayplugin/assets/js/jquery.loading.block.js"></script>
 <script>
 
-    var motivationalQuoates = ["Without requirements or design," +
+    var motivationalQuoates = ["Without planning or design," +
     " programming is the art of adding bugs to an empty text file",
         "There are two ways to write error-free programs; only the third one works",
         "A good programmer is someone who always looks both ways before crossing a one-way street.",
@@ -108,13 +111,14 @@
         "If Internet Explorer is brave enough to ask to be your default browser, You are brave enough to ask that girl out."];
 
     $('document').ready(function(){
-        var index = Math.floor((Math.random() * motivationalQuoates.length) + 1);
+
+        var index = Math.floor((Math.random() * motivationalQuoates.length-1) + 1);
         $('.laracon-banner').hide().fadeIn(3000).html('~~ '+motivationalQuoates[index]+' ~~ ');
     });
 
     function displayMotivationalQuote(){
 
-        var index = Math.floor((Math.random() * motivationalQuoates.length) + 1);
+        var index = Math.floor((Math.random() * motivationalQuoates.length-1) + 1);
 
         $('.laracon-banner').hide().fadeIn(3000).html('~~ '+motivationalQuoates[index]+' ~~ ');
     }
@@ -131,6 +135,9 @@ $('.hackerthon-item').click(function(){
     $.ajax({
         url: url,
         type: 'GET',
+        beforeSend:function () {
+            showloadingBlock();
+        },
         success:function(response){
 
             response = JSON.parse(response)
@@ -155,22 +162,22 @@ $('.hackerthon-item').click(function(){
                                      "<li><a  href='"+url+"'  class = 'post-title' id = '"+pstObj.pst_id+"' >"+pstObj.pst_title+"</a></li>"+
                                  "</ul>";
                      }
-                     console.log(pstObj);
                      if(j== 0){
-                         mainContent += pstObj.pst_content;
+                         mainContent += '<h1>'+pstObj.pst_title+'</h1>'+pstObj.pst_content;
                      }
                     j++;
+
                  })
                  html += "</li>"+
                         "</ul>";
 
 
              });
-
-
-            $('.post-content').html(mainContent);
-            $('.hackerthons').html(html)
-           // console.log(data);
+            setTimeout(function () {
+                $('.post-content').hide().fadeIn(3000).html(mainContent);
+                $('.hackerthons').hide().fadeIn(3000).html(html)
+                $.loadingBlockHide();
+            }, 2000);
         }
     })
 })
@@ -202,7 +209,24 @@ $('body').click(function () {
     $('#suggesstion-box').hide();
 })
 
+function showloadingBlock() {
 
+        $.loadingBlockShow({
+            imgPath: "{{url('assets/overlayplugin/assets/img/default.svg')}}",
+            text: 'Loading ...',
+            style: {
+                position: 'fixed',
+                width: '100%',
+                height: '100%',
+                background: 'rgba(251, 251, 251, 0.8)',
+                left: 0,
+                top: 0,
+                zIndex: 10000
+            }
+        });
+
+        //setTimeout($.loadingBlockHide, 5000);
+}
 
 </script>
 @endsection

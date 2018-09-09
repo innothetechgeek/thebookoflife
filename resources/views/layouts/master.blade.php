@@ -17,12 +17,17 @@
     <link rel="apple-touch-icon" href="/favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
     <script src="{{url('assets/bootstrap/js/popper.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url('assets/highlight/styles/atelier-forest-light.css')}}">
+    <script src="{{url('assets/highlight/highlight.pack.js')}}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
 </head>
 <body class="docs language-php">
 <div class="cloud" style="height:10px">
 
 </div>
-<div class="laracon-banner">
+<div class="laracon-banner" style="position:sticky;top: 0; z-index: 2000">
 
 </div>
 <span class="overlay"></span>
@@ -97,6 +102,5 @@
     </p>
 </footer>
 @yield('scripts')
-</script>
 </body>
 </html>
