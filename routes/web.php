@@ -12,15 +12,15 @@
 */
 
 
-Route::get('login' ,['as'=>'login',function(){
-    return view('login');
+Route::get('open-the-book-of-life' ,['as'=>'login',function(){
+    return view('auth\login');
 }]);
 
 Route::get('logout', array('as'=>'createuser','uses'=>'LogoutController@logout')
 );
 
 Route::get('/', 'HomeController@index');
-Route::get('home', 'HomeController@index');
+Route::get('preface', 'HomeController@index');
 Route::post('create-post', 'AdminController@createPost');
 
 Route::get('hckr-admin', 'AdminController@getAdminData');
@@ -48,5 +48,5 @@ Route::get('/autocomplete/{searchval}','HomeController@autoComplete');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/preface', 'HomeController@index')->name('home');
 
