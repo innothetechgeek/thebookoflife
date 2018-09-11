@@ -141,7 +141,6 @@ $('.hackerthon-item').click(function(){
         success:function(response){
 
             response = JSON.parse(response)
-            console.log(response);
              var html = "";
             var mainContent = "";
 
@@ -163,7 +162,7 @@ $('.hackerthon-item').click(function(){
                                  "</ul>";
                      }
                      if(j== 0){
-                         mainContent += '<h1>'+pstObj.pst_title+'</h1>'+pstObj.pst_content;
+                         mainContent += '<h1>'+pstObj.pst_title+'</h1><div class ="#content"><div>'+pstObj.pst_content+'<div></div>';
                      }
                     j++;
 
@@ -176,8 +175,14 @@ $('.hackerthon-item').click(function(){
             setTimeout(function () {
                 $('.post-content').hide().fadeIn(3000).html(mainContent);
                 $('.hackerthons').hide().fadeIn(3000).html(html)
+
+                if($('code').get(0)){
+                    hljs.highlightBlock($('code').get(0));
+                }
                 $.loadingBlockHide();
             }, 2000);
+
+
         }
     })
 })

@@ -234,6 +234,7 @@
 </nav>
 
 <div class="docs-wrapper main-container container" style="min-height: 400px; padding: 49px;">
+    <div class="row">
     <!-- Single button -->
     <div class="btn-group">
         <button type="button" class="btn btn-info dropdown-toggle" id="btn-hackerthons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -298,7 +299,7 @@
         </tr>
         </tbody>
     </table>
-
+    </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="editPost" tabindex="-1" role="dialog" aria-labelledby="editPost" aria-hidden="true">

@@ -19,8 +19,9 @@
     <script src="{{url('assets/bootstrap/js/popper.min.js')}}"></script>
     <link rel="stylesheet" href="{{url('assets/highlight/styles/atelier-forest-light.css')}}">
     <script src="{{url('assets/highlight/highlight.pack.js')}}"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 
 </head>
 <body class="docs language-php">
