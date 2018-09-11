@@ -91,9 +91,9 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
-<script src="/assets/js/homepage/viewport-units-buggyfill.js"></script>
-<script src="/assets/custom-select/custom-select.js"></script>
-<script src="/assets/overlayplugin/assets/js/jquery.loading.block.js"></script>
+<script src="url('assets/js/homepage/viewport-units-buggyfill.js')}}"></script>
+<script src="{{ url('assets/custom-select/custom-select.js') }}"></script>
+<script src="{{ url('assets/overlayplugin/assets/js/jquery.loading.block.js') }}"></script>
 <script>
 
     var motivationalQuoates = ["Without planning or design," +
