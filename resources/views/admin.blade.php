@@ -23,7 +23,7 @@
 </head>
 <body class="docs language-php">
 <div class="laracon-banner">
-    ~~ should be FUN, if it isn't fun then you're doing it wrong ~~
+    ~~ Programming should be FUN, if it isn't fun then you're doing it wrong ~~
 
     <!--         Spark 6.0, the official SaaS starter-kit built on Laravel, is now available!
             <a href="https://spark.laravel.com">Get your copy today!</a> -->
