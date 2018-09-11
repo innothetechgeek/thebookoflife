@@ -127,7 +127,6 @@
 $('.hackerthon-item').click(function(){
     var hackerthonId = $(this).attr('id');
     var hackerthon = $(this).text();
-    alert(hackerthon);
     $('.btn-hackerthons').text(hackerthon);
 
     $('btn-hackerthons').html(hackerthonId);
