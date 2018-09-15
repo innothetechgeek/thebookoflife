@@ -27,7 +27,7 @@ class HomeController extends Controller
             ->where('hackerthon.hck_id','=', 2)->get();
 
         $post_content =  DB::table('post')
-            ->where('cat_id','6')->get();
+            ->where('pst_slug','crud-operations')->get();
 
         return view('home', ["hackerthons"=>$hackerthons, 'posts'=>$posts,'categories'=>$categories,'post_content'=>$post_content]);
     }

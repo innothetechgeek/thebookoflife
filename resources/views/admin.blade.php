@@ -262,7 +262,7 @@
             <li data-toggle="modal"  data-target="#addPostModal"><a>Add Post</a></li>
         </ul>
     </div>
-    <table class="table table-striped" style="margin-top: 20px">
+    <table class="table table-striped" style="margin-top: 20px; table-layout: fixed; word-wrap: break-word;">
         <thead>
         <tr>
             <th scope="col">#</th>
