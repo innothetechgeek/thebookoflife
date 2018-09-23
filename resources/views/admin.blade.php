@@ -235,70 +235,109 @@
 
 <div class="docs-wrapper main-container container" style="min-height: 400px; padding: 49px;">
     <div class="row">
-    <!-- Single button -->
-    <div class="btn-group">
-        <button type="button" class="btn btn-info dropdown-toggle" id="btn-hackerthons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Hackerthons <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li data-toggle="modal" data-target="#addHackerthonModal"><a href="#">Add Hackerthon</a></li>
-        </ul>
+        <div class="col-lg-12">
+            <!-- Single button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" id="btn-hackerthons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hackerthons <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li data-toggle="modal" data-target="#addHackerthonModal"><a href="#">Add Hackerthon</a></li>
+                </ul>
+            </div>
+            <!-- Single button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"  id = "btn-categories" aria-haspopup="true" aria-expanded="false">
+                    Categories <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li data-toggle="modal" data-target="#addCategoryModal"><a href="#">Add Category</a></li>
+                </ul>
+            </div>
+            <!-- Single button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-success dropdown-toggle" id = "btn-posts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Posts <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li data-toggle="modal"  data-target="#addPostModal"><a>Add Post</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <!-- Single button -->
-    <div class="btn-group">
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"  id = "btn-categories" aria-haspopup="true" aria-expanded="false">
-            Categories <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li data-toggle="modal" data-target="#addCategoryModal"><a href="#">Add Category</a></li>
-        </ul>
-    </div>
-    <!-- Single button -->
-    <div class="btn-group">
-        <button type="button" class="btn btn-success dropdown-toggle" id = "btn-posts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Posts <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li data-toggle="modal"  data-target="#addPostModal"><a>Add Post</a></li>
-        </ul>
-    </div>
-    <table class="table table-striped" style="margin-top: 20px; table-layout: fixed; word-wrap: break-word;">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>delete</td>
-            <td data-toggle="modal" data-target="#editPost">edit</td>
+    <div class="row">
+            <div class = "main-content col-lg-10" style="margin: 10px;">
+            <table class="table table-striped" style="margin-top: 20px; table-layout: fixed; word-wrap: break-word;">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>delete</td>
+                    <td>edit</td>
 
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>delete</td>
-            <td data-toggle="modal" data-target="#editPost">edit</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>delete</td>
-            <td data-toggle="modal" data-target="#editPost">edit</td>
-        </tr>
-        </tbody>
-    </table>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>delete</td>
+                    <td>edit</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>delete</td>
+                    <td>edit</td>
+                </tr>
+                </tbody>
+            </table>
+                <form class = "update-post-form" method="POST" name="update-post-form" style="display: none">
+                    {{ csrf_field() }}
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="hackerthon">Hackerthon</label>
+                            <select class="form-control" name="hackerthon" class = "category" id="slctPostHackerthon">
+                                @foreach($hackerthons as $hackerthon)
+                                    <option value="{{$hackerthon->hck_id}}">{{$hackerthon->hck_name}}</option>
+                                @endforeach
+                            </select>
+                            <label for="category">Category</label>
+                            <select class="form-control" name="category" id="slctPostCategory">
+                                {{--@foreach($categories as $category)--}}
+                                {{--<option value="{{$category->cat_id}}">{{$category->cat_name}}</option>--}}
+                                {{--@endforeach--}}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Title</label>
+                            <input type="text" name="title" class="form-control" id="post_title" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Content</label>
+                            <textarea class="form-control" name="content" id="postContent" rows="35"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+        </div>
+    </div>
     </div>
 </div>
 <!-- Modal -->
@@ -567,6 +606,8 @@
 
     //can't access the edit post class directly coz it's generated by ajax.
     $('.main-container').on('click', '.edit-post', function(){
+        $('.table').hide();
+        $('.update-post-form').fadeIn(2000).show();
         var id = $(this).attr('id');
 
        // alert("post id: "+ id);
@@ -646,6 +687,8 @@
     })
 
     $('#btn-posts').click(function(){
+        $('.table').fadeIn(2000).show();
+        $('.update-post-form').hide();
         var path = "{{ url('posts') }}";
         $.ajax({
             url: path,
@@ -661,10 +704,9 @@
                                   "</tr>";
                 for(var i = 0; i < data.length; i++){
                     tableData += "<tr><td>"+data[i].pst_title+"</td>"+
-                                    "<td>"+data[i].pst_content+"</td>"+
                                     "<td>"+data[i].hck_name+"</td>"+
                                     "<td>"+data[i].cat_name+"</td>"+
-                                    "<td data-toggle='modal'  class= 'edit-post'  id = '"+data[i].pst_id+"' data-target='#editPost'>edit</td>"+
+                                    "<td class= 'edit-post'  id = '"+data[i].pst_id+"'>edit</td>"+
                                     "<td>delete</td>"+
                                  "</tr>";
                 }

@@ -139,5 +139,8 @@ class AdminController extends Controller
                     'pst_content' =>$content,
                     'pst_slug' => str_slug($title),
                     'cat_id' =>$category]);
+
+        return back();
     }
+
 }
