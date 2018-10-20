@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V6</title>
+    <title>Open the book of life</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="assets/clean_login_form/images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="assets/images/fav_icons/favicon.png"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->

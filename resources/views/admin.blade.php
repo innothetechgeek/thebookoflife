@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7737514/7707592/css/fonts.css" />
     <link rel="apple-touch-icon" href="/favicon.png">
 
-</head>
+</head>-
 <body class="docs language-php">
 <div class="laracon-banner">
     ~~ Programming should be FUN, if it isn't fun then you're doing it wrong ~~

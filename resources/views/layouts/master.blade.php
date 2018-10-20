@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{url('assets/custom-select/custom-select.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{url('assets/style.cs')}}s"/>
     <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/fav_icons/favicon.png"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
     <script src="{{url('assets/bootstrap/js/popper.min.js')}}"></script>
     <link rel="stylesheet" href="{{url('assets/highlight/styles/atelier-forest-light.css')}}">
@@ -68,8 +69,10 @@
                     $loweCaseHackthon = strtolower($hackerthon->hck_name);
                     $id = $hackerthon->hck_id;
                     if($loweCaseHackthon != strtolower("LE Framework notes") && $loweCaseHackthon != strtolower("LE Task Docs") ){
-                        $logout = "/logout";
-                        $id = "";
+                        if(!Auth::user()->is_admin){
+                            $logout = "/logout";
+                            $id = "";
+                        }
                     }
                     ?>
                     <a  href = "{{ $logout }}" class="dropdown-item hackerthon-item" id = "{{ $id }}" >{{ $hackerthon->hck_name }}</a>

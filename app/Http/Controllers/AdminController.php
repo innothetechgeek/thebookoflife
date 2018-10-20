@@ -102,7 +102,6 @@ class AdminController extends Controller
         $hackerthons = DB::table('hackerthon')
                                 ->get();
 
-
         $hackerthons_options = "";
         foreach($hackerthons as $hackerthon){
             $is_selected = "";
