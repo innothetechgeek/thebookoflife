@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Post;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Admin;
 
 class AdminController extends Controller
@@ -19,7 +20,7 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
-    public function createPost(){
+    public function createPost(Request $request){
         $title = Input::get('title');
         $category = Input::get('category');
         $content = Input::get('content');
@@ -29,8 +30,10 @@ class AdminController extends Controller
         $post =  new Post();
         $post->pst_title = $title;
         $post->cat_id = $category;
+        $post->pst_slug = str_slug($title);
         $post->pst_content = $content;
         $post->save();
+        $this->upload_friola_image($post->pst_id,$request);
         return back();
     }
     public function createHackerthon(){
@@ -140,6 +143,21 @@ class AdminController extends Controller
                     'cat_id' =>$category]);
 
         return back();
+    }
+
+    public function upload_friola_image(Request $request){
+       Log::warning('Custom Log2');
+        if($request->hasfile('image_param'))
+        {
+            Log::warning("Sdfdsf");
+            foreach($request->file('image_param') as $file)
+            {
+                $name=$file->getClientOriginalName();
+                Log::warning($name);
+                $file->move("assets/images/friola_images/", $name);
+               // $data[] = $name;
+            }
+        }
     }
 
 }

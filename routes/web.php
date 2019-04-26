@@ -34,6 +34,7 @@ Route::post('createuser',array('as'=>'createuser','uses'=>'Auth\RegisterControll
 
 Route::post('create-hackerthon', 'AdminController@createHackerthon');
 Route::post('create-category', 'AdminController@createCategory');
+Route::post('upload_friola_image/','AdminController@upload_friola_image');
 Route::get('category/{id}','AdminController@getCategoryById');
 Route::get('categories','AdminController@getCategories');
 Route::get('hackerthons','AdminController@getHackerthons');
@@ -44,8 +45,6 @@ Route::post('update-post/{id}', 'AdminController@updatePost');
 Route::get('chapter/{hackerthon}/{post_title_slug}',
     array('as'=>'chapter','uses'=>'HomeController@getPostBySlug'));
 Route::get('/autocomplete/{searchval}','HomeController@autoComplete');
-
-
 Auth::routes();
 
 Route::get('/preface', 'HomeController@index')->name('home');

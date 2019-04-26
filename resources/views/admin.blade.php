@@ -444,8 +444,8 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="addTextModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal"  id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="addTextModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Add Post</h5>
@@ -532,11 +532,94 @@
 
 <!-- Include Editor JS files. -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/js/froala_editor.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.9.5/js/plugins/image_manager.min.js"></script>
 
 <!-- Initialize the editor. -->
-<script> $(function() { $('textarea').froalaEditor({
-      toolbarButtons: ['bold', 'italic', 'underline','color','fontFamily','formatUL','formatOL','fontSize','insertImage','h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'html','outdent','insertLink', 'indent','|', 'undo', 'redo']
-    })  });
+<script>
+    $(function() {
+        $('textarea').froalaEditor({
+            toolbarButtons: ['bold', 'italic', 'underline', 'color',
+                'fontFamily', 'formatUL', 'formatOL', 'fontSize', 'insertImage',
+                'image', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'html', 'outdent', 'insertLink', 'indent', '|', 'undo', 'redo'],
+            // Set the image upload parameter.
+            imageUploadParam: 'image_param[]',
+
+
+            // Set the image upload URL.
+            imageUploadURL: '/upload_friola_image',
+
+            // Additional upload params.
+            imageUploadParams: {id: 'my_editor', _token: "{{ csrf_token() }}"},
+
+            // Set request type.
+            imageUploadMethod: 'POST',
+
+            // Set max image size to 5MB.
+            imageMaxSize: 5 * 1024 * 1024,
+
+            // Allow to upload PNG and JPG.
+            imageAllowedTypes: ['jpeg', 'jpg', 'png']
+
+
+        }).on('froalaEditor.image.beforeUpload', function (e, editor, images) {
+            // Return false if you want to stop the image upload.
+            alert('Return false if you want to stop the image upload.');
+
+        })
+            .on('froalaEditor.image.uploaded', function (e, editor, response) {
+                // Image was uploaded to the server.
+                alert('Image was uploaded to the server.');
+            })
+            .on('froalaEditor.image.inserted', function (e, editor, $img, response) {
+                // Image was inserted in the editor.
+                alert('image was inserted in the editor.');
+            })
+            .on('froalaEditor.image.replaced', function (e, editor, $img, response) {
+                // Image was replaced in the editor.
+
+            })
+            .on('froalaEditor.image.error', function (e, editor, error, response) {
+                // Bad link.
+                if (error.code == 1) {
+                    alert('bad link');
+                }
+
+                // No link in upload response.
+                else if (error.code == 2) {
+                    alert('no link in upload resnponse');
+                }
+
+                // Error during image upload.
+                else if (error.code == 3) {
+                    alert('error during image upload');
+                }
+
+                // Parsing response failed.
+                else if (error.code == 4) {
+                    alert('parsing response failed');
+                }
+
+                // Image too text-large.
+                else if (error.code == 5) {
+                    alert('Image too text-large.');
+                }
+
+                // Invalid image type.
+                else if (error.code == 6) {
+                    alert('invalid image type');
+                }
+
+                // Image can be uploaded only to same domain in IE 8 and IE 9.
+                else if (error.code == 7) {
+                    alert('Image can be uploaded only to same domain in IE 8 and IE 9.');
+                }
+
+
+
+            })
+    });
+
+
 </script>
 
 
