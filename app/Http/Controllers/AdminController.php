@@ -33,9 +33,9 @@ class AdminController extends Controller
         $post->pst_slug = str_slug($title);
         $post->pst_content = $content;
         $post->save();
-        $this->upload_friola_image($post->pst_id,$request);
         return back();
     }
+
     public function createHackerthon(){
         $hackerthon_name = Input::get('hackerthon');
 
@@ -150,14 +150,33 @@ class AdminController extends Controller
         if($request->hasfile('image_param'))
         {
             Log::warning("Sdfdsf");
+            $paths = [];
             foreach($request->file('image_param') as $file)
             {
                 $name=$file->getClientOriginalName();
                 Log::warning($name);
                 $file->move("assets/images/friola_images/", $name);
                // $data[] = $name;
+                $DIR = DIRECTORY_SEPARATOR;
+                $paths = [
+                    "link" =>"assets/images/friola_images/$name"
+                ];
             }
+            Log::warning(json_encode($paths));
+            return json_encode($paths);
         }
+    }
+
+    public function get_post_images(){
+       $images = glob("assets/images/friola_images/*.{jpg,png,gif}", GLOB_BRACE);
+       $images_arr = [];
+        foreach($images as $image) {
+            $image_name = basename($image);
+            $images_arr[]  = [
+                "url"=>"assets/images/friola_images/".$image_name
+            ];
+        }
+        return json_encode($images_arr);
     }
 
 }

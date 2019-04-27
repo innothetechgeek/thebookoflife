@@ -374,7 +374,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Content</label>
-                        <textarea class="form-control" name="content" id="postContent" rows="35"></textarea>
+                        <textarea class="form-control" name="content" id="postContentEdit" rows="35"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -619,11 +619,7 @@
             })
     });
 
-
 </script>
-
-
-
 <script>
 
     $('#hackerthon').change(function(){

@@ -35,6 +35,7 @@ Route::post('createuser',array('as'=>'createuser','uses'=>'Auth\RegisterControll
 Route::post('create-hackerthon', 'AdminController@createHackerthon');
 Route::post('create-category', 'AdminController@createCategory');
 Route::post('upload_friola_image/','AdminController@upload_friola_image');
+Route::get('get_friola_images/','AdminController@get_post_images');
 Route::get('category/{id}','AdminController@getCategoryById');
 Route::get('categories','AdminController@getCategories');
 Route::get('hackerthons','AdminController@getHackerthons');
