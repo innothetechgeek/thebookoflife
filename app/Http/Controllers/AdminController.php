@@ -158,8 +158,9 @@ class AdminController extends Controller
                 $file->move("assets/images/friola_images/", $name);
                // $data[] = $name;
                 $DIR = DIRECTORY_SEPARATOR;
+                $base_url = url('/');
                 $paths = [
-                    "link" =>"assets/images/friola_images/$name"
+                    "link" =>"$base_url/assets/images/friola_images/$name"
                 ];
             }
             Log::warning(json_encode($paths));
