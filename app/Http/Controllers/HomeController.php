@@ -26,8 +26,7 @@ class HomeController extends Controller
             ->leftJoin('category',"category.hck_id",'=', 'hackerthon.hck_id')
             ->leftJoin('post',"post.cat_id",'=', 'category.cat_id')
             ->where('hackerthon.hck_id','=', 9)
-            ->orderBy('pst_id', 'desc')->get();
-
+            ->orderBy('pst_id', 'asc')->get();
         $post_content =  DB::table('post')
                         ->where('pst_slug','crud-operations')
                         ->get();
