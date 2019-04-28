@@ -19,12 +19,12 @@ class HomeController extends Controller
         $hackerthons = DB::table('hackerthon')->get();
 
         $categories =  DB::table('category')
-            ->where('hck_id','=',2)->get();
+            ->where('hck_id','=',9)->get();
 
         $posts =  DB::table('hackerthon')
             ->leftJoin('category',"category.hck_id",'=', 'hackerthon.hck_id')
             ->leftJoin('post',"post.cat_id",'=', 'category.cat_id')
-            ->where('hackerthon.hck_id','=', 2)->get();
+            ->where('hackerthon.hck_id','=', 9)->get();
 
         $post_content =  DB::table('post')
                         ->where('pst_slug','crud-operations')
