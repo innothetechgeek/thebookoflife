@@ -19,7 +19,8 @@ class HomeController extends Controller
         $hackerthons = DB::table('hackerthon')->get();
 
         $categories =  DB::table('category')
-            ->where('hck_id','=',9)->get();
+            ->where('hck_id','=',9)
+            ->orderBy('hck_id', 'asc')->get();
 
         $posts =  DB::table('hackerthon')
             ->leftJoin('category',"category.hck_id",'=', 'hackerthon.hck_id')
