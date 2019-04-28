@@ -64,7 +64,8 @@ class HomeController extends Controller
         $posts =  DB::table('hackerthon')
             ->leftJoin('category',"category.hck_id",'=', 'hackerthon.hck_id')
             ->leftJoin('post',"post.cat_id",'=', 'category.cat_id')
-            ->where('hackerthon.hck_id','=', $hackerthon->hck_id)->get();
+            ->where('hackerthon.hck_id','=', $hackerthon->hck_id)
+            ->orderBy('pst_id', 'asc')->get();
 
         $post_content =  DB::table('post')
             ->select('pst_content','pst_title')
