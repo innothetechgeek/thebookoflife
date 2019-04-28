@@ -56,7 +56,7 @@
     <div class="switcher">
         <div class="btn-group">
             <button type="button" style="width:215px;" class="btn dropdown-toggle btn-hackerthons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                LE Framework Notes
+                Wealthpro Code Docs
             </button>
             <div class="dropdown-menu">
                 @foreach($hackerthons as $hackerthon)
@@ -65,7 +65,7 @@
                     $id = "";
                     $loweCaseHackthon = strtolower($hackerthon->hck_name);
                     $id = $hackerthon->hck_id;
-                    if($loweCaseHackthon != strtolower("LE Framework notes") && $loweCaseHackthon != strtolower("LE Task Docs") ){
+                    if($loweCaseHackthon != strtolower("LE Framework notes") && $loweCaseHackthon != strtolower("LE Task Docs") && $loweCaseHackthon != strtolower("Wealthpro Code Docs") ){
                         if(!Auth::user()->is_admin){
                             $logout = "/logout";
                             $id = "";
