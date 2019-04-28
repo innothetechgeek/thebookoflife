@@ -27,19 +27,6 @@
         <script async type="text/javascript" src="" id="_carbonads_js"></script>
         <small><a href="#" id="doc-expand" style="font-size: 11px; color: #B8B8B8;">Expand All</a></small>
         <div class = "hackerthons">
-            <ul class ="list-unstyled">
-                <li>
-                    <h2 data-toggle="collapse" href="#collapseCategories">Getting Started</h2>
-                    <ul  class="collapse list-unstyled" id = "collapseCategories"  style="padding-left:15px;">
-                        <li><a href="">Installation</a></li>
-                        <li><a href="">Configuration</a></li>
-                        <li><a href="">Directory Structure</a></li>
-                        <li><a href="">Homestead</a></li>
-                        <li><a href="">Valet</a></li>
-                        <li><a href="">Deployment</a></li>
-                    </ul>
-                </li>
-            </ul>
             @foreach($categories as $cat)
                 <ul class ="list-unstyled">
                     <li>
