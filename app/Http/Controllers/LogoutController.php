@@ -12,7 +12,7 @@ class LogoutController extends Controller
     //
     public function logout($logout = ""){
         Auth::logout();
-        return redirect('open-the-book-of-life/unauthorized')->with('message','You do not have sufficient permissions to access
+        return redirect('open-the-book-of-life')->with('message','You do not have sufficient permissions to access
         the requested page!!');
     }
 }
