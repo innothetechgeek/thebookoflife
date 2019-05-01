@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
     <link rel="stylesheet" type="text/css" href="{{url('assets/custom-select/custom-select.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{url('assets/style.cs')}}s"/>
-    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="apple-touch-icon" href="{{ URL::asset('/favicon.png') }}">
     <link rel="icon" type="image/png" href={{ url("assets/images/fav_icons/favicon.png") }}/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
     <script src="{{url('assets/bootstrap/js/popper.min.js')}}"></script>

@@ -12,7 +12,7 @@
 */
 
 
-Route::get('open-the-book-of-life' ,['as'=>'login',function(){
+Route::get('open-the-book-of-life/{unauthorized?}' ,['as'=>'login',function(){
     return view('auth/login');
 }]);
 

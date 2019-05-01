@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="assets/images/fav_icons/favicon.png"/>
+    <link rel="icon" type="image/png" href="{{ URL::asset('assets/images/fav_icons/favicon.png') }}"/>
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/clean_login_form/vendor/bootstrap/css/bootstrap.min.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/clean_login_form/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/clean_login_form/fonts/iconic/css/material-design-iconic-font.min.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/clean_login_form/vendor/animate/animate.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/clean_login_form/vendor/css-hamburgers/hamburgers.min.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/clean_login_form/vendor/animsition/css/animsition.min.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/clean_login_form/vendor/select2/select2.min.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/clean_login_form/vendor/daterangepicker/daterangepicker.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/css/util.css">
-    <link rel="stylesheet" type="text/css" href="assets/clean_login_form/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/clean_login_form/css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/clean_login_form/css/main.css') }}">
     <!--===============================================================================================-->
 </head>
 <body>
@@ -38,13 +38,19 @@
 						Open the book of life
 					</span>
                 <span class="login100-form-avatar">
-						<img src="assets/images/logo.png" alt="AVATAR">
-					</span>
+						<img src="{{ URL::asset('assets/images/logo.png') }}" alt="AVATAR">
+                </span>
+
 
                 <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
                     <input class="input100" type="text" name="email">
                     <span class="focus-input100" data-placeholder="Username"></span>
                 </div>
+                @if (session('message'))
+                    <span class="help-block"  style="color:red">
+                        <strong>{{ session('message') }}</strong>
+                    </span>
+                @endif
                 @if ($errors->has('email'))
                     <span class="help-block"  style="color:red">
                                     <strong>{{ $errors->first('email') }}</strong>
