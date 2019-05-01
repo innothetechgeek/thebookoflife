@@ -13,7 +13,7 @@
 
 
 Route::get('open-the-book-of-life' ,['as'=>'login',function(){
-    return view('auth\login');
+    return view('auth/login');
 }]);
 
 Route::get('logout', array('as'=>'createuser','uses'=>'LogoutController@logout')
