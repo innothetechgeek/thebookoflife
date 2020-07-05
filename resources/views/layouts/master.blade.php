@@ -23,6 +23,7 @@
     <script>
         hljs.initHighlightingOnLoad();
     </script>
+     <link rel="apple-touch-icon" href="/favicon.png">
 
 </head>
 <body class="docs language-php">
@@ -56,7 +57,7 @@
     <div class="switcher">
         <div class="btn-group">
             <button type="button" style="width:215px;" class="btn dropdown-toggle btn-hackerthons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Wealthpro Code Docs
+              Titanium Documentation
             </button>
             <div class="dropdown-menu">
                 @foreach($hackerthons as $hackerthon)

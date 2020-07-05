@@ -52,18 +52,12 @@
     <div class="switcher">
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                LE Framework notes
+                Titanium Documentation
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <li role="presentation">
-                    <a  role="menuitem" tabindex="-1" href="">LE Tasks Documentations</a>
-                </li>
-                <li role="presentation">
                     <a  href = "{{('logout')}}" role="menuitem" tabindex="-1" href="">Tapandsell Code Documentation</a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="">LE Framework notes</a>
                 </li>
                 <li role="presentation">
                     <a  href = "{{('logout')}}" role="menuitem" tabindex="-1" href="">General Notes</a>

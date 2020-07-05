@@ -49,9 +49,10 @@
     </section>
     <article class = "post-content">
          <div>
-
+           <?php if(count($post_content) > 0){ ?>
              <h1> {{ $post_content[0]->pst_title }} </h1>
              {!!  $post_content[0]->pst_content !!}
+           <?php } ?>
          </div>
     </article>
 </div>
@@ -143,15 +144,17 @@ $('.hackerthon-item').click(function(){
                      if(pstObj.cat_id == catObj.cat_id){
 
                          var url = '{{ url("chapter") }}';
+                         console.log(pstObj.pst_content);
 
                          url = url+"/"+pstObj.cat_id+"/"+pstObj.pst_slug;
                          html += "<ul class='collapse list-unstyled' id='"+collapseText+"'  style='padding-left:15px;'>"+
                                      "<li><a  href='"+url+"'  class = 'post-title' id = '"+pstObj.pst_id+"' >"+pstObj.pst_title+"</a></li>"+
                                  "</ul>";
+
+                        mainContent += '<h1>'+pstObj.pst_title+'</h1><div class ="#content"><div>'+pstObj.pst_content+'<div></div>';
+
                      }
-                     if(j== 0){
-                         mainContent += '<h1>'+pstObj.pst_title+'</h1><div class ="#content"><div>'+pstObj.pst_content+'<div></div>';
-                     }
+
                     j++;
 
                  })
@@ -161,6 +164,7 @@ $('.hackerthon-item').click(function(){
 
              });
             setTimeout(function () {
+              console.log(mainContent);
                 $('.post-content').hide().fadeIn(3000).html(mainContent);
                 $('.hackerthons').hide().fadeIn(3000).html(html)
 
@@ -223,4 +227,3 @@ function showloadingBlock() {
 
 </script>
 @endsection
-
