@@ -35,12 +35,10 @@
         <img src="{{ url('assets/images/logo.png') }}"  width="84.1" height="59" style="margin-top: -4px;">
         <span style="margin-left: 10px; color:#57b846" >The book of life</span>
     </a>
-
     <div class="search nav-block invisible">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#A1A1A1" d="M5.8 11.7c-1.6 0-3-.6-4.1-1.7S0 7.4 0 5.8s.6-3 1.7-4.1C2.8.6 4.3 0 5.8 0s3 .6 4.1 1.7c2.3 2.3 2.3 6 0 8.3-1 1.1-2.5 1.7-4.1 1.7zM5.8 1c-1.3 0-2.5.5-3.4 1.4C1.5 3.3 1 4.5 1 5.8s.5 2.5 1.4 3.4c.9.9 2.1 1.4 3.4 1.4s2.5-.5 3.4-1.4c1.9-1.9 1.9-5 0-6.9C8.4 1.5 7.1 1 5.8 1z"/><path fill="#A1A1A1" d="M15.5 16c-.1 0-.3 0-.3-.1L9.3 10c-.2-.2-.2-.5 0-.7s.5-.2.7 0l5.9 5.9c.2.2.2.5 0 .7-.1.1-.3.1-.4.1z"/></svg>
         <input placeholder="search" type="text" v-model="search" id="search-input" v-on:blur="reset" />
     </div>
-
     <ul class="main-nav" v-if="! search">
         <li class="nav-docs"><a href="/logout">Tapandsell docs</a></li>
         <li class="nav-laracasts"><a href="">General Notes</a></li>
@@ -48,7 +46,6 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Laravel notes <span class="caret"></span></a>
         </li>
     </ul>
-
     <div class="switcher">
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
@@ -65,21 +62,17 @@
             </ul>
         </div>
     </div>
-
     <div class="responsive-sidebar-nav">
         <a href="#" class="toggle-slide menu-link btn">&#9776;</a>
     </div>
 </nav>
-
 <nav id="slide-menu" class="slide-menu" role="navigation">
-
     <div class="brand">
         <a href="/">
         <a href="/">
             <img src="/assets/homepage/img/laravel-logo-white.png" height="50">
         </a>
     </div>
-
     <ul class="slide-main-nav">
         <li><a href="/">Home</a></li>
         <li class="nav-docs"><a href="/docs">Documentation</a></li>
@@ -91,7 +84,6 @@
             </ul>
         </li>
     </ul>
-
     <div class="slide-docs-nav">
         <h2>Documentation</h2>
         <ul>
