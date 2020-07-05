@@ -28,7 +28,6 @@
 </head>
 <body class="docs language-php">
 <div class="cloud" style="height:10px;background: url({{url('/assets/images/cloud.jpg')}}) repeat-x #fff;">
-
 </div>
 <div class="laracon-banner" style="position:sticky;top: 0; z-index: 2000">
 
