@@ -31,7 +31,7 @@ class HomeController extends Controller
             ->where('hackerthon.hck_id','=', 2)
             ->orderBy('pst_id', 'asc')->get();
         $post_content =  DB::table('post')
-                        ->where('pst_slug','preface')
+                        ->where('pst_slug','introduction')
                         ->get();
 
         return view('home', ["hackerthons"=>$hackerthons, 'posts'=>$posts,'categories'=>$categories,'post_content'=>$post_content]);
