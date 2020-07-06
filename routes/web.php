@@ -48,5 +48,4 @@ Route::get('chapter/{hackerthon}/{post_title_slug}',
 Route::get('/autocomplete/{searchval}','HomeController@autoComplete');
 Auth::routes();
 
-Route::get('/preface', 'HomeController@index')->name('home');
-
+Route::get('/introduction', 'HomeController@index')->name('home');
