@@ -19,8 +19,11 @@ class HomeController extends Controller
         $hackerthons = DB::table('hackerthon')->get();
 
         $categories =  DB::table('category')
+            ->select(DB::raw("post.cat_id,cat_name, (SELECT count(*) from post WHERE post.cat_id = category.cat_id) cat_nr_of_posts"))
+            ->leftJoin('post',"post.cat_id",'=', 'category.cat_id')
             ->where('hck_id','=',2)
-            ->orderBy('hck_id', 'asc')->get();
+            ->groupBy('post.cat_id','category.cat_id','cat_name')
+            ->orderBy('cat_order', 'asc')->get();
 
         $posts =  DB::table('hackerthon')
             ->leftJoin('category',"category.hck_id",'=', 'hackerthon.hck_id')
@@ -37,14 +40,20 @@ class HomeController extends Controller
     public function getPostsByHackerthonId($hck_id){
 
         $categories =  DB::table('category')
+                            ->select(DB::raw("post.cat_id,cat_name, (SELECT count(*) from post WHERE post.cat_id = category.cat_id) cat_nr_of_posts"))
+                            ->leftJoin('post',"post.cat_id",'=', 'category.cat_id')
+                            ->where('hck_id','=',2)
+                            ->groupBy('post.cat_id','category.cat_id','cat_name')
                             ->where('hck_id','=',$hck_id)
-                            ->get();
+                            ->orderBy('cat_order', 'asc')->get();
 
-        $posts =  DB::table('hackerthon')
+      $posts =  DB::table('hackerthon')
                         ->leftJoin('category',"category.hck_id",'=', 'hackerthon.hck_id')
                         ->leftJoin('post',"post.cat_id",'=', 'category.cat_id')
                         ->where('hackerthon.hck_id','=', $hck_id)
                         ->orderBy('pst_id', 'asc')->get();
+
+
 
         $response = ["categories" => $categories,'posts'=>$posts];
         return json_encode($response);
@@ -59,7 +68,11 @@ class HomeController extends Controller
                             ->where('cat_id',$cat_id)->first();
 
         $categories =  DB::table('category')
-            ->where('hck_id','=', $hackerthon->hck_id)->get();
+              ->select(DB::raw("post.cat_id,cat_name, (SELECT count(*) from post WHERE post.cat_id = category.cat_id) cat_nr_of_posts"))
+              ->leftJoin('post',"post.cat_id",'=', 'category.cat_id')
+              ->groupBy('post.cat_id','category.cat_id','cat_name')
+              ->orderBy('cat_order', 'asc')
+              ->where('hck_id','=', $hackerthon->hck_id)->get();
 
         $posts =  DB::table('hackerthon')
             ->leftJoin('category',"category.hck_id",'=', 'hackerthon.hck_id')
