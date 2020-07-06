@@ -30,7 +30,15 @@
             @foreach($categories as $cat)
                 <ul class ="list-unstyled">
                     <li>
-                        <h2 data-toggle="collapse" href="#{{str_replace(' ','',$cat->cat_name)}}">{{$cat->cat_name}}</h2>
+                        <h2 id = "cat_{{$cat->cat_name}}" data-toggle="collapse" href="#{{str_replace(' ','',$cat->cat_name)}}">{{$cat->cat_name}}</h2>
+                        <?php if($cat->cat_nr_of_posts < 1){ ?>
+                          <style media="screen">
+                            #cat_{{$cat->cat_name}}:after{
+                              content:none;
+                            }
+                          </style>
+                          <?php } ?>
+
                         <ul  class="collapse list-unstyled" id = "{{str_replace(' ','',$cat->cat_name)}}"  style="padding-left:15px;">
                             @foreach($posts as $post)
                                 @if($post->cat_id == $cat->cat_id)
@@ -138,7 +146,14 @@ $('.hackerthon-item').click(function(){
                  var collapseText = catObj.cat_name.replace(/\s/g, '');
                  html += "<ul class = 'list-unstyled'>"+
                      "<li>"+
-                     "<h2 data-toggle='collapse' href='#"+collapseText+"'>"+catObj.cat_name+"</h2>";
+                     "<h2  id = 'cat_"+collapseText+"' data-toggle='collapse' href='#"+collapseText+"'>"+catObj.cat_name+"</h2>";
+                     console.log(catObj.cat_nr_of_posts);
+                     if(catObj.cat_nr_of_posts < 1){
+                       html += "<style>"+
+                           "#cat_"+collapseText+":after{"+
+                           "content:none;"+
+                           "}</style>"
+                     }
 
                  $(response.posts).each(function(pstIndx, pstObj){
                      if(pstObj.cat_id == catObj.cat_id){
@@ -147,11 +162,17 @@ $('.hackerthon-item').click(function(){
                          console.log(pstObj.pst_content);
 
                          url = url+"/"+pstObj.cat_id+"/"+pstObj.pst_slug;
-                         html += "<ul class='collapse list-unstyled' id='"+collapseText+"'  style='padding-left:15px;'>"+
-                                     "<li><a  href='"+url+"'  class = 'post-title' id = '"+pstObj.pst_id+"' >"+pstObj.pst_title+"</a></li>"+
-                                 "</ul>";
+                         html += "<ul class='collapse list-unstyled' id='"+collapseText+"'  style='padding-left:15px;'>";
+                                if(pstObj.pst_title !== null){
+                                     html += "<li><a  href='"+url+"'  class = 'post-title' id = '"+pstObj.pst_id+"' >"+pstObj.pst_title+"</a></li>";
+                                   }
+                                  html += "</ul>";
 
-                        mainContent += '<h1>'+pstObj.pst_title+'</h1><div class ="#content"><div>'+pstObj.pst_content+'<div></div>';
+                                 console.log(pstObj.pst_title);
+
+                       if(pstObj.pst_title !== null && pstObj.pst_content !==  null){
+                            mainContent += '<h1>'+pstObj.pst_title+'</h1><div class ="#content"><div>'+pstObj.pst_content+'<div></div>';
+                       }
 
                      }
 
@@ -164,7 +185,6 @@ $('.hackerthon-item').click(function(){
 
              });
             setTimeout(function () {
-              console.log(mainContent);
                 $('.post-content').hide().fadeIn(3000).html(mainContent);
                 $('.hackerthons').hide().fadeIn(3000).html(html)
 
