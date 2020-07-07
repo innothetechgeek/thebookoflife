@@ -15,6 +15,9 @@
 Route::get('open-the-book-of-life/{unauthorized?}' ,['as'=>'login',function(){
     return view('auth/login');
 }]);
+Route::get('login' ,['as'=>'login',function(){
+    return view('auth/login');
+}]);
 
 Route::get('logout', array('as'=>'createuser','uses'=>'LogoutController@logout')
 );
