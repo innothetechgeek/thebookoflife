@@ -250,5 +250,12 @@ function showloadingBlock() {
         //setTimeout($.loadingBlockHide, 5000);
 }
 
+
+$(window).on('load', function(){
+  setTimeout(function(){
+    $(".loader").fadeOut("slow");
+  }, 2000);
+});
+
 </script>
 @endsection

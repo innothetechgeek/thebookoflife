@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{url('assets/custom-select/custom-select.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{url('assets/style.cs')}}s"/>
     <link rel="apple-touch-icon" href="{{ URL::asset('/favicon.png') }}">
-    <link rel="icon" type="image/png" href={{ url("assets/images/fav_icons/favicon.png") }}/>
+    <link rel="icon" type="image/png" href={{ url("assets/images/fav_icons/favicon.png?v=2") }}/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
     <script src="{{url('assets/bootstrap/js/popper.min.js')}}"></script>
     <link rel="stylesheet" href="{{url('assets/highlight/styles/atelier-forest-light.css')}}">
@@ -23,10 +23,11 @@
     <script>
         hljs.initHighlightingOnLoad();
     </script>
-     <link rel="apple-touch-icon" href="/favicon.png">
+     <!-- <link rel="apple-touch-icon" href="/favicon.png"> -->
 
 </head>
 <body class="docs language-php">
+  <div class="loader" style=" background: url({{url('assets/overlayplugin/assets/img/default.svg')}}) center no-repeat rgba(251, 251, 251, 0.8)"></div>
 <div class="cloud" style="height:10px;background: url({{url('/assets/images/cloud.jpg')}}) repeat-x #fff;">
 </div>
 <div class="laracon-banner" style="position:sticky;top: 0; z-index: 2000">
