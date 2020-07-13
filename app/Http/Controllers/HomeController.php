@@ -16,6 +16,7 @@ class HomeController extends Controller
     }
 
     public function index(){
+
         $hackerthons = DB::table('hackerthon')->get();
 
         $categories =  DB::table('category')
@@ -34,7 +35,7 @@ class HomeController extends Controller
                         ->where('pst_slug','introduction')
                         ->get();
 
-        return view('home', ["hackerthons"=>$hackerthons, 'posts'=>$posts,'categories'=>$categories,'post_content'=>$post_content]);
+        return view('home', ["hackerthons"=>$hackerthons, 'posts'=>$posts,'categories'=>$categories,'post_content'=>$post_content,'category_id'=>$cat_id,'on_home_page'=>true]);
     }
 
     public function getPostsByHackerthonId($hck_id){
@@ -85,7 +86,7 @@ class HomeController extends Controller
             ->where('pst_slug','=', $slug)
             ->where('cat_id','=', $cat_id)->get();
 
-        return view('home', ["hackerthons"=>$hackerthons, 'posts'=>$posts,'categories'=>$categories,'post_content'=>$post_content]);
+        return view('home', ["hackerthons"=>$hackerthons, 'posts'=>$posts,'categories'=>$categories,'post_content'=>$post_content,'category_id'=>$cat_id,'on_home_page' => false]);
     }
 
     public function autoComplete($searchVale)
