@@ -27,11 +27,11 @@
         <script async type="text/javascript" src="" id="_carbonads_js"></script>
         <small><a href="#" id="doc-expand" style="font-size: 11px; color: #B8B8B8;">Expand All</a></small>
         <div class = "hackerthons">
-            <?php $category_id = $on_home_page == true ? $category_id : 21; ?>
+            <?php $category_id = (!isset($category_id) && $on_home_page == true) ? 21 : $category_id; ?>
             @foreach($categories as $cat)
                 <ul class ="list-unstyled">
                     <li>
-                      <?php    
+                      <?php
                       $expand_area = ($on_home_page == true || ($cat->cat_id == $category_id && $category_id != '') ) ? "true" :  "";
 
                       ?>
