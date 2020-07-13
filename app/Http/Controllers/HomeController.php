@@ -34,8 +34,9 @@ class HomeController extends Controller
         $post_content =  DB::table('post')
                         ->where('pst_slug','introduction')
                         ->get();
+                        //
 
-        return view('home', ["hackerthons"=>$hackerthons, 'posts'=>$posts,'categories'=>$categories,'post_content'=>$post_content,'category_id'=>$cat_id,'on_home_page'=>true]);
+        return view('home', ["hackerthons"=>$hackerthons, 'posts'=>$posts,'categories'=>$categories,'post_content'=>$post_content,'on_home_page'=>true]);
     }
 
     public function getPostsByHackerthonId($hck_id){
