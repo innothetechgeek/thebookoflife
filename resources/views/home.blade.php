@@ -32,7 +32,7 @@
                 <ul class ="list-unstyled">
                     <li>
                       <?php
-                      $expand_area = ($on_home_page == true || $cat->cat_id == $category_id  ) ? "true" :  "";
+                      $expand_area = ($on_home_page == true || ($cat->cat_id == $category_id && $category_id != '') ) ? "true" :  "";
 
                       ?>
                         <h2 aria-expanded="<?php echo $expand_area ?>" id = "cat_{{$cat->cat_name}}" data-toggle="collapse" href="#{{str_replace(' ','',$cat->cat_name)}}">{{$cat->cat_name}}</h2>
