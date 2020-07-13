@@ -30,7 +30,11 @@
             @foreach($categories as $cat)
                 <ul class ="list-unstyled">
                     <li>
-                        <h2 id = "cat_{{$cat->cat_name}}" data-toggle="collapse" href="#{{str_replace(' ','',$cat->cat_name)}}">{{$cat->cat_name}}</h2>
+                      <?php
+                      $expand_area = ($on_home_page == true || $cat->cat_id == $category_id  ) ? "true" :  "";
+
+                      ?>
+                        <h2 aria-expanded="<?php echo $expand_area ?>" id = "cat_{{$cat->cat_name}}" data-toggle="collapse" href="#{{str_replace(' ','',$cat->cat_name)}}">{{$cat->cat_name}}</h2>
                         <?php if($cat->cat_nr_of_posts < 1){ ?>
                           <style media="screen">
                             #cat_{{$cat->cat_name}}:after{
@@ -38,8 +42,11 @@
                             }
                           </style>
                           <?php } ?>
+                          <?php
+                            $collapsed = ($on_home_page=='true' || $cat->cat_id == $category_id ) ? "collapse show" : "false";
+                          ?>
 
-                        <ul  class="collapse list-unstyled" id = "{{str_replace(' ','',$cat->cat_name)}}"  style="padding-left:15px;">
+                        <ul  class="collapse list-unstyled <?php echo $collapsed ?>" id = "{{str_replace(' ','',$cat->cat_name)}}"  style="padding-left:15px;">
                             @foreach($posts as $post)
                                 @if($post->cat_id == $cat->cat_id)
                                     <?php
