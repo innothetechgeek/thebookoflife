@@ -27,12 +27,12 @@
         <script async type="text/javascript" src="" id="_carbonads_js"></script>
         <small><a href="#" id="doc-expand" style="font-size: 11px; color: #B8B8B8;">Expand All</a></small>
         <div class = "hackerthons">
-            <?php $category_id = $on_home_page == true ? $category_id : 21; ?>
+            <?php $category_id = (!isset($category_id) && $on_home_page == true) ? 21 : $category_id; ?>
             @foreach($categories as $cat)
                 <ul class ="list-unstyled">
                     <li>
-                      <?php    
-                      $expand_area = ($on_home_page == true || ($cat->cat_id == $category_id && $category_id != '') ) ? "true" :  "";
+                      <?php
+                      $expand_area = ($cat->cat_id == $category_id) ? "true" :  "";
 
                       ?>
                         <h2 aria-expanded="<?php echo $expand_area ?>" id = "cat_{{$cat->cat_name}}" data-toggle="collapse" href="#{{str_replace(' ','',$cat->cat_name)}}">{{$cat->cat_name}}</h2>
@@ -44,7 +44,7 @@
                           </style>
                           <?php } ?>
                           <?php
-                            $collapsed = ($on_home_page=='true' || $cat->cat_id == $category_id ) ? "collapse show" : "false";
+                            $collapsed = ($cat->cat_id == $category_id) ? "collapse show" : "false";
                           ?>
 
                         <ul  class="collapse list-unstyled <?php echo $collapsed ?>" id = "{{str_replace(' ','',$cat->cat_name)}}"  style="padding-left:15px;">
