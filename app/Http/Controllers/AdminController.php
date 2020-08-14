@@ -159,6 +159,7 @@ class AdminController extends Controller
                // $data[] = $name;
                 $DIR = DIRECTORY_SEPARATOR;
                 $base_url = env('APP_URL');
+                echo "the base url is";
                 $paths = [
                     "link" => $base_url."assets/images/friola_images/$name"
                 ];
