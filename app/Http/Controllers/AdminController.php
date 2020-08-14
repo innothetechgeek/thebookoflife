@@ -159,7 +159,7 @@ class AdminController extends Controller
                // $data[] = $name;
                 $DIR = DIRECTORY_SEPARATOR;
                 $base_url = env('APP_URL');
-                echo "the base url is";
+                echo "the base url is"
                 $paths = [
                     "link" => $base_url."assets/images/friola_images/$name"
                 ];
@@ -170,7 +170,8 @@ class AdminController extends Controller
     }
 
     public function get_post_images(){
-       $images = glob("assets/images/friola_images/*.{jpg,png,gif}", GLOB_BRACE);
+        $base_url = env('APP_URL');
+       $images = glob($base_url."assets/images/friola_images/*.{jpg,png,gif}", GLOB_BRACE);
        $images_arr = [];
         foreach($images as $image) {
             $image_name = basename($image);
