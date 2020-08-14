@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Support\Facades\DB;
 use App\Hackerthon;
+use Illuminate\Support\Facades\URL;
 
 use Illuminate\Http\Request;
 
@@ -16,6 +17,11 @@ class HomeController extends Controller
     }
 
     public function index(){
+
+        dd(env('APP_URL'));
+
+        $post =  new Post();
+       
 
         $hackerthons = DB::table('hackerthon')->get();
 
