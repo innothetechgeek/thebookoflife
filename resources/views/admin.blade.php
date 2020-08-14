@@ -523,6 +523,8 @@
 <!-- Initialize the editor. -->
 <script>
     $(function() {
+      
+        var base_url = "<?php echo  env('APP_URL'); ?>";
         $('textarea').froalaEditor({
             toolbarButtons: ['bold', 'italic', 'underline', 'color',
                 'fontFamily', 'formatUL', 'formatOL', 'fontSize', 'insertImage',
@@ -532,7 +534,7 @@
 
 
             // Set the image upload URL.
-            imageUploadURL: '/upload_friola_image',
+            imageUploadURL: base_url+'upload_friola_image',
 
             // Additional upload params.
             imageUploadParams: {id: 'my_editor', _token: "{{ csrf_token() }}"},

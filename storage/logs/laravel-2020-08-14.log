@@ -380,3 +380,19 @@ Stack trace:
 #51 C:\wamp64\www\mydocs\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #52 C:\wamp64\www\mydocs\server.php(21): require_once('C:\\wamp64\\www\\m...')
 #53 {main}  
+[2020-08-14 02:03:05] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "cache:config" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:forget
+    cache:table in C:\wamp64\www\mydocs\vendor\symfony\console\Application.php:618
+Stack trace:
+#0 C:\wamp64\www\mydocs\vendor\symfony\console\Application.php(229): Symfony\Component\Console\Application->find('cache:config')
+#1 C:\wamp64\www\mydocs\vendor\symfony\console\Application.php(148): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\wamp64\www\mydocs\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\wamp64\www\mydocs\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2020-08-14 02:06:50] local.WARNING: Custom Log2  
+[2020-08-14 02:06:50] local.WARNING: Sdfdsf  
+[2020-08-14 02:06:50] local.WARNING: 1597362303240.png  
+[2020-08-14 02:06:50] local.WARNING: {"link":"assets\/images\/friola_images\/1597362303240.png"}  
