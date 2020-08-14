@@ -176,7 +176,7 @@ class AdminController extends Controller
         foreach($images as $image) {
             $image_name = basename($image);
             $images_arr[]  = [
-                "url"=>"assets/images/friola_images/".$image_name
+                "url"=> $base_url."assets/images/friola_images/".$image_name
             ];
         }
         return json_encode($images_arr);
